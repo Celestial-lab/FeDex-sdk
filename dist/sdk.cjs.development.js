@@ -17,23 +17,25 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"204": {
+	"169": {
 	owner: "0x615EbC82c0cC134bd89bAD009BF20D82C3Db914b",
-	Multicall2: "0x46da3Aab3a9B714e5Ea174098cDe833b8920d60d",
-	WAGToken: "0xa899f1830c64045b8B368781677D036A0b379D31",
-	WBNB: "0x4200000000000000000000000000000000000006",
-	WAGStake: "0xf84fB4a80DD211408699afa9C7A9D236Feff1dD8",
+	Multicall2: "0x9731502B98F65BBb573D0106ECd9E4097dbcCD30",
+	MantaToken: "0xf584c4521bB890b0aD1eb68a9b1113339e0A7E85",
+	WETH: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746",
+	MantaStake: "0xf84fB4a80DD211408699afa9C7A9D236Feff1dD8",
 	Timelock: "0x88396C6c872aA12e9C68bD225c16dEa959361eaD",
-	WAGFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
+	MantaFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
 	WagyuVault: "0x0FE86ee7437608F8B8f6185dab1667Ac44e0b59b",
 	VaultOwner: "0x8acDeCCd75552B56A4cB1aBC4842371d7e55699b",
-	WAGStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
-	FeDexFactory: "0xfb3AD00B272449AF3ea44e5C6ADbdfaB1655A046",
-	Factory_Init_Code_Hash: "0x9136cb87afc28895daf927dbd156a5a06ec28f951a8f1fd6a66df8cbe894972f",
-	FeDexRouter: "0x9731502B98F65BBb573D0106ECd9E4097dbcCD30"
+	MantaStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
+	WAGFarmV1: "0x01589eEEEBD94540f00a4202865872c9671Fa9fe",
+	MantaFactory: "0x60Ad4aB0659C3b83320f3D43d3797553b55D52c6",
+	Factory_Init_Code_Hash: "0x0ab9c682241c63f9cd48d24e28caa771a27969b4144c71139b822f364754d5a2",
+	MantaLockVault: "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
+	MantaRouter: "0xa899f1830c64045b8B368781677D036A0b379D31"
 },
 	"534351": {
-	FeDexFactory: "0x6f81D0f4A0AfeDEDdB1EB8e0d428E219B3eaD07B",
+	MantaFactory: "0x6f81D0f4A0AfeDEDdB1EB8e0d428E219B3eaD07B",
 	Factory_Init_Code_Hash: "0xcd4acf0af9b631bf341dff0091cc50b2381f88da04ee6b0f29546807136edd35",
 	owner: "0x1a642f0E3c3aF545E7AcBD38b07251B3990914F1",
 	Multicall2: "0xf3d8Da8f6732B78bE6acCAF08182106Bfa40326e",
@@ -56,7 +58,7 @@ var addresses = {
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 204] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 169] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 534351] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -72,7 +74,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 })(exports.Rounding || (exports.Rounding = {}));
 
 var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
-var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].FeDexFactory;
+var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].MantaFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -473,7 +475,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WBNB, 18, 'WBNB', 'Wrapped BNB', 'https://mainnet.opbnbscan.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://scroll.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://pacific-explorer.manta.network/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://scroll.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

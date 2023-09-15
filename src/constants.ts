@@ -5,7 +5,7 @@ import addresses from './addresses.json'
 export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
-  MAINNET = 204,
+  MAINNET = 169,
   TESTNET = 534351
 }
 
@@ -22,7 +22,7 @@ export enum Rounding {
 
 export const DEFAULT_CHAIN_ID = ChainId.MAINNET
 
-export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].FeDexFactory
+export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].MantaFactory
 
 export const INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash
 
