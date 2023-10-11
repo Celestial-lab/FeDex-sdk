@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://scroll.io/'
+    'https://sepolia.scrollscan.dev/'
   )
 }

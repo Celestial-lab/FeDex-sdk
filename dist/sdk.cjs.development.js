@@ -35,23 +35,19 @@ var addresses = {
 	MantaRouter: "0xa899f1830c64045b8B368781677D036A0b379D31"
 },
 	"534351": {
-	MantaFactory: "0x6f81D0f4A0AfeDEDdB1EB8e0d428E219B3eaD07B",
-	Factory_Init_Code_Hash: "0xcd4acf0af9b631bf341dff0091cc50b2381f88da04ee6b0f29546807136edd35",
-	owner: "0x1a642f0E3c3aF545E7AcBD38b07251B3990914F1",
+	ScrollFactory: "0x13353f173fc1Baeb52d0056753E25CbEd751f1A8",
+	Factory_Init_Code_Hash: "0x45c0e6f63985f663e9ef9d2155e965ae45bb5b98f3c250886e1d9d0d81e5dc3a",
+	owner: "0xC6Af57a80C7769DC530ff6590f79F94EE57E2417",
 	Multicall2: "0xf3d8Da8f6732B78bE6acCAF08182106Bfa40326e",
-	WAGToken: "0xb830d8213e2c3dD621037703D05A5e594387B6Be",
+	ScrollRouter: "0xEE672C288108aDFf1BC20040382F8e7890b2f697",
+	ScrollToken: "0x1435f08C4E64a717A26133D3753f53F3fea04203",
 	WETH: "0x5300000000000000000000000000000000000004",
-	TE6: "0x7777b22B5f5A5d1B9ED16bad28E31215273f48B6",
-	TE9: "0x045cf7eF71cC42a5CA1F9C4A330Bf1349295034c",
-	TE12: "0xF8f13cFdA6b41Cc9FC3FB0Ff217B0C449cE4Eb29",
-	TE18: "0x35E0c9830d3d6c273C2A58DB725214afa39bdEf3",
-	WAGStake: "0xd0338acDCaAda6E306B613c437a8Ad7B0118b9a9",
+	ScrollStake: "0xd0338acDCaAda6E306B613c437a8Ad7B0118b9a9",
 	Timelock: "0x4C4Bdf7b579494A44a314c5D40dE5B53502F6608",
-	WAGFarm: "0x0FE7711dD2A622725FfB30f378145e1D40127f80",
+	ScrollFarm: "0x0FE7711dD2A622725FfB30f378145e1D40127f80",
 	WagyuVault: "0xD3A8555607e18142a1AC634c66C15671E6A56686",
 	VaultOwner: "0xe804675EbBBB3c70Cf66F12d2f7ADB8934F3e5F8",
-	WAGStakingFactory: "0x211E287FD967a51D7A1F8c2Fb7788c6142e084b1",
-	WagyuRouter: "0x04ceC9A1637A6C8b374bF0d5E499b7F2c914e038"
+	WAGStakingFactory: "0x211E287FD967a51D7A1F8c2Fb7788c6142e084b1"
 }
 };
 
@@ -73,8 +69,8 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
-var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].MantaFactory;
+var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
+var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].ScrollFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -475,7 +471,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://pacific-explorer.manta.network/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://scroll.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://pacific-explorer.manta.network/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://sepolia.scrollscan.dev/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

@@ -20,9 +20,9 @@ export enum Rounding {
   ROUND_UP
 }
 
-export const DEFAULT_CHAIN_ID = ChainId.MAINNET
+export const DEFAULT_CHAIN_ID = ChainId.TESTNET
 
-export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].MantaFactory
+export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].ScrollFactory
 
 export const INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash
 
