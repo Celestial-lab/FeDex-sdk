@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://pacific-explorer.manta.network/'
+    'https://blockscout.scroll.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,

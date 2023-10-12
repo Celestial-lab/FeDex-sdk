@@ -17,7 +17,7 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"169": {
+	"534351": {
 	owner: "0x615EbC82c0cC134bd89bAD009BF20D82C3Db914b",
 	Multicall2: "0x9731502B98F65BBb573D0106ECd9E4097dbcCD30",
 	MantaToken: "0xf584c4521bB890b0aD1eb68a9b1113339e0A7E85",
@@ -34,13 +34,13 @@ var addresses = {
 	MantaLockVault: "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
 	MantaRouter: "0xa899f1830c64045b8B368781677D036A0b379D31"
 },
-	"534351": {
-	ScrollFactory: "0x13353f173fc1Baeb52d0056753E25CbEd751f1A8",
-	Factory_Init_Code_Hash: "0x45c0e6f63985f663e9ef9d2155e965ae45bb5b98f3c250886e1d9d0d81e5dc3a",
-	owner: "0xC6Af57a80C7769DC530ff6590f79F94EE57E2417",
-	Multicall2: "0xf3d8Da8f6732B78bE6acCAF08182106Bfa40326e",
-	ScrollRouter: "0xEE672C288108aDFf1BC20040382F8e7890b2f697",
-	ScrollToken: "0x1435f08C4E64a717A26133D3753f53F3fea04203",
+	"534352": {
+	ScrollFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
+	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
+	owner: "0xd217Cff34bBDa5C7D88e179bAADeBF96D9D9E150",
+	Multicall2: "0x7d3D776556823cD8086C2f321EaFDE1AB9CCE401",
+	ScrollRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
+	ScrollToken: "0x786214Ee3EB0fE1d96AbBbaaADb06E869036f862",
 	WETH: "0x5300000000000000000000000000000000000004",
 	ScrollStake: "0xd0338acDCaAda6E306B613c437a8Ad7B0118b9a9",
 	Timelock: "0x4C4Bdf7b579494A44a314c5D40dE5B53502F6608",
@@ -54,7 +54,7 @@ var addresses = {
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 169] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 534352] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 534351] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -69,7 +69,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].ScrollFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -404,7 +404,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'Ethereum');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'Scroll Ether');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -471,7 +471,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://pacific-explorer.manta.network/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://sepolia.scrollscan.dev/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://sepolia.scrollscan.dev/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
