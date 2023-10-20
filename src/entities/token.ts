@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://sepolia.scrollscan.dev/'
+    'WZETA',
+    'Wrapped ZETA',
+    'https://explorer.zetachain.com/'
   )
 }

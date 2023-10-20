@@ -12,22 +12,22 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"534351": {
-	owner: "0x615EbC82c0cC134bd89bAD009BF20D82C3Db914b",
-	Multicall2: "0x9731502B98F65BBb573D0106ECd9E4097dbcCD30",
-	MantaToken: "0xf584c4521bB890b0aD1eb68a9b1113339e0A7E85",
-	WETH: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746",
+	"7001": {
+	owner: "0xC6Af57a80C7769DC530ff6590f79F94EE57E2417",
+	Multicall2: "0x6f81D0f4A0AfeDEDdB1EB8e0d428E219B3eaD07B",
+	QuillToken: "0x76f308Ef2302435CabdF69e9db484E3f6e409479",
+	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
 	MantaStake: "0xf84fB4a80DD211408699afa9C7A9D236Feff1dD8",
 	Timelock: "0x88396C6c872aA12e9C68bD225c16dEa959361eaD",
-	MantaFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
+	QuillFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
 	WagyuVault: "0x0FE86ee7437608F8B8f6185dab1667Ac44e0b59b",
 	VaultOwner: "0x8acDeCCd75552B56A4cB1aBC4842371d7e55699b",
 	MantaStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
 	WAGFarmV1: "0x01589eEEEBD94540f00a4202865872c9671Fa9fe",
-	MantaFactory: "0x60Ad4aB0659C3b83320f3D43d3797553b55D52c6",
-	Factory_Init_Code_Hash: "0x0ab9c682241c63f9cd48d24e28caa771a27969b4144c71139b822f364754d5a2",
 	MantaLockVault: "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
-	MantaRouter: "0xa899f1830c64045b8B368781677D036A0b379D31"
+	QuillFactory: "0x6bB50c87f01DCD922De742655D731F709Ea54462",
+	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
+	QuillRouter: "0x05db3064C0cAB168Df079ee84f50197f8D50c85C"
 },
 	"534352": {
 	ScrollFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
@@ -51,7 +51,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 534352] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 534351] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -69,8 +69,8 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.MAINNET;
-var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].ScrollFactory;
+var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].QuillFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -404,7 +404,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'Scroll Ether');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ZETA', 'ZETA chain');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -471,7 +471,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://sepolia.scrollscan.dev/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://explorer.zetachain.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
