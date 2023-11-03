@@ -22,7 +22,7 @@ export enum Rounding {
 
 export const DEFAULT_CHAIN_ID = ChainId.TESTNET
 
-export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].QuillFactory
+export const FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory
 
 export const INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash
 
