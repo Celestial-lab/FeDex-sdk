@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WZETA',
     'Wrapped ZETA',
-    'https://explorer.zetachain.com/'
+    'https://zetachain-athens-3.blockscout.com/'
   )
 }

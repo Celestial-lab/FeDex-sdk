@@ -30,9 +30,9 @@ var addresses = {
 	MantaStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
 	WAGFarmV1: "0x01589eEEEBD94540f00a4202865872c9671Fa9fe",
 	MantaLockVault: "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
-	SwapFactory: "0xF1458D32951b6b1A7366bc3da24C3F9652117a37",
-	Factory_Init_Code_Hash: "0xc245af4fa6f1a0c19e8d9c97d5554188ac0e1c296e4085890c7144387fddf0fa",
-	SwapRouter: "0x870D1FB34b3370477E2B25f21E0C09332bcC033A"
+	SwapFactory: "0x753b488aEcf12e7c636622a67d0Dc2F48af50a65",
+	Factory_Init_Code_Hash: "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
+	SwapRouter: "0xcb122CaeC80495B2beE3afACBF05e1b55415eDC7"
 },
 	"534352": {
 	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
@@ -471,7 +471,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://explorer.zetachain.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -794,7 +794,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'Katana-LP', 'Katana LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'VEN-LP', 'Venuswap LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
