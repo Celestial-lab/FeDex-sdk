@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://blockscout.scroll.io/'
+    'https://explorer.mode.network/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
