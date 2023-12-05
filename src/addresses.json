@@ -27,8 +27,8 @@
     "MantaStakingFactory": "0x2394632041D76C82c34a6114985C4DDA69594C82",
     "WAGFarmV1": "0x01589eEEEBD94540f00a4202865872c9671Fa9fe",
     "MantaLockVault": "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
-    "SwapFactory": "0x753b488aEcf12e7c636622a67d0Dc2F48af50a65",
-    "Factory_Init_Code_Hash": "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
-    "SwapRouter": "0xcb122CaeC80495B2beE3afACBF05e1b55415eDC7"
+    "SwapFactory": "0x78270BC9ae32f3F41dA0c928ecB0Bf77EFE17Cce",
+    "Factory_Init_Code_Hash": "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+    "SwapRouter": "0x935DDee3988c9864ECb582A65225d2A8c710F1aa"
   }
 }
