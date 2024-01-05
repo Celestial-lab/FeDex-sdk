@@ -17,16 +17,16 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"7001": {
-	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
+	"195": {
+	WETH: "0xa2aFfd8301BfB3c5b815829f2F509f053556D21B",
 	SwapFactory: "0xeE25c38c7A340501379472086Ed9AeCC029314B2",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
 },
 	"42766": {
-	SwapFactory: "0x4C72BF37eb72df730c22Df16ca594f6985130dD6",
-	Factory_Init_Code_Hash: "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
-	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
+	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 }
 };
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 195] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'VEN-LP', 'Venuswap LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
