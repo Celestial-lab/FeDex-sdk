@@ -17,17 +17,17 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"195": {
-	WETH: "0xa2aFfd8301BfB3c5b815829f2F509f053556D21B",
-	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
-},
 	"42766": {
 	SwapFactory: "0x4C72BF37eb72df730c22Df16ca594f6985130dD6",
 	Factory_Init_Code_Hash: "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
+},
+	"167007": {
+	WETH: "0xf86E3b4cde65c0cd59580Ee3F8dd34343E23ea5B",
+	SwapFactory: "0xd0034aEe8e1d8d8919A401c546Ed2d0F2A4C90F1",
+	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	SwapRouter: "0xeE25c38c7A340501379472086Ed9AeCC029314B2"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 195] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 167007] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'OKB', 'OKB x1');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH taiko');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.jolnir.taiko.xyz/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
