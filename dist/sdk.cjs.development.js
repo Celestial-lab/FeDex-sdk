@@ -1437,6 +1437,101 @@ var Trade = /*#__PURE__*/function () {
   return Trade;
 }();
 
+/**
+ * A currency is any fungible financial instrument, including Ether, all ERC20 tokens, and other chain-native currencies
+ */
+var BaseCurrency =
+/**
+ * Constructs an instance of the base class `BaseCurrency`.
+ * @param chainId the chain ID on which this currency resides
+ * @param decimals decimals of the currency
+ * @param symbol symbol of the currency
+ * @param name of the currency
+ */
+function BaseCurrency(chainId, decimals, symbol, name) {
+  if (!Number.isSafeInteger(chainId)) throw new Error('CHAIN_ID');
+  if (!(decimals >= 0 && decimals < 255 && Number.isInteger(decimals))) throw new Error('DECIMALS'); // invariant(Number.isSafeInteger(chainId), 'CHAIN_ID') todo: readd
+  // invariant(decimals >= 0 && decimals < 255 && Number.isInteger(decimals), 'DECIMALS') todo: readd
+
+  this.chainId = chainId;
+  this.decimals = decimals;
+  this.symbol = symbol;
+  this.name = name;
+};
+
+/**
+ * Represents the native currency of the chain on which it resides, e.g.
+ */
+
+var NativeCurrency = /*#__PURE__*/function (_BaseCurrency) {
+  _inheritsLoose(NativeCurrency, _BaseCurrency);
+
+  function NativeCurrency() {
+    var _this;
+
+    _this = _BaseCurrency.apply(this, arguments) || this;
+    _this.isNative = true;
+    _this.isToken = false;
+    return _this;
+  }
+
+  return NativeCurrency;
+}(BaseCurrency);
+
+/**
+ *
+ * Native is the main usage of a 'native' currency, i.e. for BSC mainnet and all testnets
+ */
+
+var Native = /*#__PURE__*/function (_NativeCurrency) {
+  _inheritsLoose(Native, _NativeCurrency);
+
+  function Native(_ref) {
+    var chainId = _ref.chainId,
+        decimals = _ref.decimals,
+        name = _ref.name,
+        symbol = _ref.symbol;
+    return _NativeCurrency.call(this, chainId, decimals, symbol, name) || this;
+  }
+
+  Native.onChain = function onChain(chainId) {
+    if (chainId in this.cache) {
+      return this.cache[chainId];
+    }
+
+    !!!NATIVE[chainId] ?  invariant(false, 'NATIVE_CURRENCY')  : void 0;
+    var _NATIVE$chainId = NATIVE[chainId],
+        decimals = _NATIVE$chainId.decimals,
+        name = _NATIVE$chainId.name,
+        symbol = _NATIVE$chainId.symbol; // eslint-disable-next-line no-return-assign
+
+    return this.cache[chainId] = new Native({
+      chainId: chainId,
+      decimals: decimals,
+      symbol: symbol,
+      name: name
+    });
+  };
+
+  var _proto = Native.prototype;
+
+  _proto.equals = function equals(other) {
+    return other.isNative && other.chainId === this.chainId;
+  };
+
+  _createClass(Native, [{
+    key: "wrapped",
+    get: function get() {
+      var wnative = WETH[this.chainId];
+      !!!wnative ?  invariant(false, 'WRAPPED')  : void 0;
+      return wnative;
+    }
+  }]);
+
+  return Native;
+}(NativeCurrency);
+Native.cache = {};
+
 function toHex(currencyAmount) {
   return "0x" + currencyAmount.raw.toString(16);
 }
@@ -2338,6 +2433,7 @@ exports.InsufficientInputAmountError = InsufficientInputAmountError;
 exports.InsufficientReservesError = InsufficientReservesError;
 exports.MINIMUM_LIQUIDITY = MINIMUM_LIQUIDITY;
 exports.NATIVE = NATIVE;
+exports.Native = Native;
 exports.Pair = Pair;
 exports.Percent = Percent;
 exports.Price = Price;
