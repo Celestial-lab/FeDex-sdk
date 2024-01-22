@@ -36,6 +36,9 @@ var _SOLIDITY_TYPE_MAXIMA;
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 534352] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
+  ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
+  ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
+  ChainId[ChainId["BSC"] = 97] = "BSC";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
