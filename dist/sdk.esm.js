@@ -12,11 +12,20 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
+	"5": {
+	WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
+},
+	"97": {
+	WETH: "0x094616F0BdFB0b526bD735Bf66Eca0Ad254ca81F"
+},
 	"7001": {
 	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
 	SwapFactory: "0xeE25c38c7A340501379472086Ed9AeCC029314B2",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
+},
+	"80001": {
+	WETH: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
 },
 	"534352": {
 	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
@@ -390,7 +399,7 @@ function Currency(decimals, symbol, name) {
 Currency.ETHER = /*#__PURE__*/new Currency(18, 'ZETA', 'ZETA chain');
 var ETHER = Currency.ETHER;
 
-var _WETH;
+var _WETH, _NATIVE;
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
@@ -402,6 +411,8 @@ var Token = /*#__PURE__*/function (_Currency) {
     var _this;
 
     _this = _Currency.call(this, decimals, symbol, name) || this;
+    _this.isNative = false;
+    _this.isToken = true;
     _this.chainId = chainId;
     _this.address = validateAndParseAddress(address);
     _this.projectLink = projectLink;
@@ -435,7 +446,30 @@ var Token = /*#__PURE__*/function (_Currency) {
     !(this.chainId === other.chainId) ? process.env.NODE_ENV !== "production" ? invariant(false, 'CHAIN_IDS') : invariant(false) : void 0;
     !(this.address !== other.address) ? process.env.NODE_ENV !== "production" ? invariant(false, 'ADDRESSES') : invariant(false) : void 0;
     return this.address.toLowerCase() < other.address.toLowerCase();
-  };
+  }
+  /**
+   * Return this token, which does not need to be wrapped
+   */
+  ;
+
+  _createClass(Token, [{
+    key: "wrapped",
+    get: function get() {
+      return this;
+    }
+  }, {
+    key: "serialize",
+    get: function get() {
+      return {
+        address: this.address,
+        chainId: this.chainId,
+        decimals: this.decimals,
+        symbol: this.symbol,
+        name: this.name,
+        projectLink: this.projectLink
+      };
+    }
+  }]);
 
   return Token;
 }(Currency);
@@ -454,7 +488,28 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.BSC] = /*#__PURE__*/new Token(ChainId.BSC, addresses[ChainId.BSC].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
+var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
+  name: 'Ether',
+  symbol: 'ETH',
+  decimals: 18
+}, _NATIVE[ChainId.TESTNET] = {
+  name: 'Zeta',
+  symbol: 'ZETA',
+  decimals: 18
+}, _NATIVE[ChainId.GÖRLI] = {
+  name: 'Ether',
+  symbol: 'ETH',
+  decimals: 18
+}, _NATIVE[ChainId.MUMBAI] = {
+  name: 'Mumbai Matic',
+  symbol: 'Matic',
+  decimals: 18
+}, _NATIVE[ChainId.BSC] = {
+  name: 'Binance Chain Native Token Testnet',
+  symbol: 'BNB',
+  decimals: 18
+}, _NATIVE);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -2271,5 +2326,5 @@ var Fetcher = /*#__PURE__*/function () {
   return Fetcher;
 }();
 
-export { ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MINIMUM_LIQUIDITY, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
+export { ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MINIMUM_LIQUIDITY, NATIVE, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
 //# sourceMappingURL=sdk.esm.js.map

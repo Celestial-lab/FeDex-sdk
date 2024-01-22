@@ -4,6 +4,15 @@ import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
 import addresses from '../addresses.json'
 
+export interface SerializedToken {
+  chainId: number
+  address: string
+  decimals: number
+  symbol?: string
+  name?: string
+  projectLink?: string
+}
+
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
@@ -11,6 +20,10 @@ export class Token extends Currency {
   public readonly chainId: ChainId
   public readonly address: string
   public readonly projectLink?: string
+
+  public readonly isNative: false = false as const
+
+  public readonly isToken: true = true as const
 
   public constructor(
     chainId: ChainId,
@@ -49,6 +62,24 @@ export class Token extends Currency {
     invariant(this.address !== other.address, 'ADDRESSES')
     return this.address.toLowerCase() < other.address.toLowerCase()
   }
+
+  /**
+   * Return this token, which does not need to be wrapped
+   */
+    public get wrapped(): Token {
+      return this
+    }
+  
+    public get serialize(): SerializedToken {
+      return {
+        address: this.address,
+        chainId: this.chainId,
+        decimals: this.decimals,
+        symbol: this.symbol,
+        name: this.name,
+        projectLink: this.projectLink,
+      }
+    }
 }
 
 /**
@@ -82,5 +113,57 @@ export const WETH = {
     'WZETA',
     'Wrapped ZETA',
     'https://zetachain-athens-3.blockscout.com/'
+  ),
+  [ChainId.GÖRLI]: new Token(
+    ChainId.GÖRLI,
+    addresses[ChainId.GÖRLI].WETH,
+    18,
+    'WETH',
+    'Wrapped ETH',
+    'https://goerli.etherscan.io/'
+  ),
+  [ChainId.MUMBAI]: new Token(
+    ChainId.MUMBAI,
+    addresses[ChainId.MUMBAI].WETH,
+    18,
+    'WMATIC',
+    'Wrapped MATIC',
+    'https://mumbai.polygonscan.com/'
+  ),
+  [ChainId.BSC]: new Token(
+    ChainId.BSC,
+    addresses[ChainId.BSC].WETH,
+    18,
+    'WBNB',
+    'Wrapped BNB',
+    'https://testnet.bscscan.com/'
   )
+}
+
+export const NATIVE = {
+  [ChainId.MAINNET]: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  [ChainId.TESTNET]: {
+    name: 'Zeta',
+    symbol: 'ZETA',
+    decimals: 18,
+  },
+  [ChainId.GÖRLI]: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  [ChainId.MUMBAI]: {
+    name: 'Mumbai Matic',
+    symbol: 'Matic',
+    decimals: 18,
+  },
+  [ChainId.BSC]: {
+    name: 'Binance Chain Native Token Testnet',
+    symbol: 'BNB',
+    decimals: 18,
+  }
 }

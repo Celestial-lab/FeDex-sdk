@@ -1,5 +1,13 @@
 import { ChainId } from '../constants';
 import { Currency } from './currency';
+export interface SerializedToken {
+    chainId: number;
+    address: string;
+    decimals: number;
+    symbol?: string;
+    name?: string;
+    projectLink?: string;
+}
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
@@ -7,6 +15,8 @@ export declare class Token extends Currency {
     readonly chainId: ChainId;
     readonly address: string;
     readonly projectLink?: string;
+    readonly isNative: false;
+    readonly isToken: true;
     constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string, projectLink?: string);
     /**
      * Returns true if the two tokens are equivalent, i.e. have the same chainId and address.
@@ -20,6 +30,11 @@ export declare class Token extends Currency {
      * @throws if the tokens are on different chains
      */
     sortsBefore(other: Token): boolean;
+    /**
+     * Return this token, which does not need to be wrapped
+     */
+    get wrapped(): Token;
+    get serialize(): SerializedToken;
 }
 /**
  * Compares two currencies for equality
@@ -28,4 +43,34 @@ export declare function currencyEquals(currencyA: Currency, currencyB: Currency)
 export declare const WETH: {
     534352: Token;
     7001: Token;
+    5: Token;
+    80001: Token;
+    97: Token;
+};
+export declare const NATIVE: {
+    534352: {
+        name: string;
+        symbol: string;
+        decimals: number;
+    };
+    7001: {
+        name: string;
+        symbol: string;
+        decimals: number;
+    };
+    5: {
+        name: string;
+        symbol: string;
+        decimals: number;
+    };
+    80001: {
+        name: string;
+        symbol: string;
+        decimals: number;
+    };
+    97: {
+        name: string;
+        symbol: string;
+        decimals: number;
+    };
 };
