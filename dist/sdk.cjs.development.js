@@ -2434,6 +2434,7 @@ exports.InsufficientReservesError = InsufficientReservesError;
 exports.MINIMUM_LIQUIDITY = MINIMUM_LIQUIDITY;
 exports.NATIVE = NATIVE;
 exports.Native = Native;
+exports.NativeCurrency = NativeCurrency;
 exports.Pair = Pair;
 exports.Percent = Percent;
 exports.Price = Price;
