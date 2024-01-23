@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { Currency } from './mCurrency'
+import { mCurrency } from './mCurrency'
 import { NativeCurrency } from './nativeCurrency'
 import { WETH, NATIVE, Token } from './token'
 
@@ -40,7 +40,7 @@ export class Native extends NativeCurrency {
     return (this.cache[chainId] = new Native({ chainId, decimals, symbol, name }))
   }
 
-  public equals(other: Currency): boolean {
+  public equals(other: mCurrency): boolean {
     return other.isNative && other.chainId === this.chainId
   }
 }

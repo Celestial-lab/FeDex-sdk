@@ -1,4 +1,4 @@
-import { Currency } from './mCurrency';
+import { mCurrency } from './mCurrency';
 import { NativeCurrency } from './nativeCurrency';
 import { Token } from './token';
 /**
@@ -15,5 +15,5 @@ export declare class Native extends NativeCurrency {
     get wrapped(): Token;
     private static cache;
     static onChain(chainId: number): Native;
-    equals(other: Currency): boolean;
+    equals(other: mCurrency): boolean;
 }
