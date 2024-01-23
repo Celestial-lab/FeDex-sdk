@@ -1,5 +1,5 @@
 {
-  "name": "@wagyu-swap/sdk",
+  "name": "@abstra-swap/sdk",
   "license": "MIT",
   "version": "2.4.0",
   "description": "🛠 An SDK for building applications on top of Fedex Swap.",
