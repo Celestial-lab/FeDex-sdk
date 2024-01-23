@@ -1503,7 +1503,8 @@ var Native = /*#__PURE__*/function (_NativeCurrency) {
     var _NATIVE$chainId = NATIVE[chainId],
         decimals = _NATIVE$chainId.decimals,
         name = _NATIVE$chainId.name,
-        symbol = _NATIVE$chainId.symbol; // eslint-disable-next-line no-return-assign
+        symbol = _NATIVE$chainId.symbol;
+    console.log("🚀 ~ Native ~ onChain ~ name:", name); // eslint-disable-next-line no-return-assign
 
     return this.cache[chainId] = new Native({
       chainId: chainId,
