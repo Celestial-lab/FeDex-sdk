@@ -12,17 +12,29 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
+	"0": {
+	WETH: "0x65a45c57636f9BcCeD4fe193A602008578BcA90b"
+},
 	"5": {
 	WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
 },
+	"56": {
+	WETH: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+},
 	"97": {
 	WETH: "0x094616F0BdFB0b526bD735Bf66Eca0Ad254ca81F"
+},
+	"137": {
+	WETH: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
 },
 	"7001": {
 	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
 	SwapFactory: "0xeE25c38c7A340501379472086Ed9AeCC029314B2",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
+},
+	"18332": {
+	WETH: "0x65a45c57636f9BcCeD4fe193A602008578BcA90b"
 },
 	"80001": {
 	WETH: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
@@ -43,7 +55,11 @@ var ChainId;
   ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
   ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
   ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
-  ChainId[ChainId["BSC"] = 97] = "BSC";
+  ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
+  ChainId[ChainId["BSC_MAINNET"] = 56] = "BSC_MAINNET";
+  ChainId[ChainId["BSC_TESTNET"] = 97] = "BSC_TESTNET";
+  ChainId[ChainId["BTC_MAINNET"] = 0] = "BTC_MAINNET";
+  ChainId[ChainId["BTC_TESTNET"] = 18332] = "BTC_TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -488,11 +504,19 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.BSC] = /*#__PURE__*/new Token(ChainId.BSC, addresses[ChainId.BSC].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(ChainId.BTC_MAINNET, addresses[ChainId.BTC_MAINNET].WETH, 8, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(ChainId.BTC_TESTNET, addresses[ChainId.BTC_TESTNET].WETH, 8, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, addresses[ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(ChainId.BSC_MAINNET, addresses[ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(ChainId.BSC_TESTNET, addresses[ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
 var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
   name: 'Ether',
   symbol: 'ETH',
   decimals: 18
+}, _NATIVE[ChainId.BTC_MAINNET] = {
+  name: 'Bitcoin',
+  symbol: 'BTC',
+  decimals: 8
+}, _NATIVE[ChainId.BTC_TESTNET] = {
+  name: 'Bitcoin',
+  symbol: 'BTC',
+  decimals: 8
 }, _NATIVE[ChainId.TESTNET] = {
   name: 'Zeta',
   symbol: 'ZETA',
@@ -505,8 +529,16 @@ var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
   name: 'Mumbai Matic',
   symbol: 'Matic',
   decimals: 18
-}, _NATIVE[ChainId.BSC] = {
+}, _NATIVE[ChainId.POLYGON] = {
+  name: 'Matic',
+  symbol: 'Matic',
+  decimals: 18
+}, _NATIVE[ChainId.BSC_TESTNET] = {
   name: 'Binance Chain Native Token Testnet',
+  symbol: 'tBNB',
+  decimals: 18
+}, _NATIVE[ChainId.BSC_MAINNET] = {
+  name: 'Binance Chain Native Token',
   symbol: 'BNB',
   decimals: 18
 }, _NATIVE);
@@ -1532,6 +1564,99 @@ var Trade = /*#__PURE__*/function () {
   return Trade;
 }();
 
+var Big$2 = /*#__PURE__*/toFormat(_Big);
+var MCurrencyAmount = /*#__PURE__*/function (_Fraction) {
+  _inheritsLoose(MCurrencyAmount, _Fraction);
+
+  // amount _must_ be raw, i.e. in the native representation
+  function MCurrencyAmount(currency, amount) {
+    var _this;
+
+    var parsedAmount = parseBigintIsh(amount);
+    validateSolidityTypeInstance(parsedAmount, SolidityType.uint256);
+    _this = _Fraction.call(this, parsedAmount, JSBI.exponentiate(TEN, JSBI.BigInt(currency.decimals))) || this;
+    _this.currency = currency;
+    return _this;
+  }
+  /**
+   * Returns a new currency amount instance from the unitless amount of token, i.e. the raw amount
+   * @param currency the currency in the amount
+   * @param rawAmount the raw token or ether amount
+   */
+
+
+  MCurrencyAmount.fromRawAmount = function fromRawAmount(currency, rawAmount) {
+    return new MCurrencyAmount(currency, rawAmount);
+  };
+
+  MCurrencyAmount.fromFractionalAmount = function fromFractionalAmount(currency, numerator) {
+    return new MCurrencyAmount(currency, numerator);
+  };
+
+  var _proto = MCurrencyAmount.prototype;
+
+  _proto.add = function add(other) {
+    !currencyEquals(this.currency, other.currency) ? process.env.NODE_ENV !== "production" ? invariant(false, 'TOKEN') : invariant(false) : void 0;
+    return new MCurrencyAmount(this.currency, JSBI.add(this.raw, other.raw));
+  };
+
+  _proto.subtract = function subtract(other) {
+    !currencyEquals(this.currency, other.currency) ? process.env.NODE_ENV !== "production" ? invariant(false, 'TOKEN') : invariant(false) : void 0;
+    return new MCurrencyAmount(this.currency, JSBI.subtract(this.raw, other.raw));
+  };
+
+  _proto.toSignificant = function toSignificant(significantDigits, format, rounding) {
+    if (significantDigits === void 0) {
+      significantDigits = 6;
+    }
+
+    if (rounding === void 0) {
+      rounding = Rounding.ROUND_DOWN;
+    }
+
+    return _Fraction.prototype.toSignificant.call(this, significantDigits, format, rounding);
+  };
+
+  _proto.toFixed = function toFixed(decimalPlaces, format, rounding) {
+    if (decimalPlaces === void 0) {
+      decimalPlaces = this.currency.decimals;
+    }
+
+    if (rounding === void 0) {
+      rounding = Rounding.ROUND_DOWN;
+    }
+
+    !(decimalPlaces <= this.currency.decimals) ? process.env.NODE_ENV !== "production" ? invariant(false, 'DECIMALS') : invariant(false) : void 0;
+    return _Fraction.prototype.toFixed.call(this, decimalPlaces, format, rounding);
+  };
+
+  _proto.toExact = function toExact(format) {
+    if (format === void 0) {
+      format = {
+        groupSeparator: ''
+      };
+    }
+
+    Big$2.DP = this.currency.decimals;
+    return new Big$2(this.numerator.toString()).div(this.denominator.toString()).toFormat(format);
+  };
+
+  _createClass(MCurrencyAmount, [{
+    key: "raw",
+    get: function get() {
+      return this.numerator;
+    }
+  }, {
+    key: "wrapped",
+    get: function get() {
+      if (this.currency.isToken) return this;
+      return MCurrencyAmount.fromFractionalAmount(this.currency.wrapped, this.numerator);
+    }
+  }]);
+
+  return MCurrencyAmount;
+}(Fraction);
+
 function toHex(currencyAmount) {
   return "0x" + currencyAmount.raw.toString(16);
 }
@@ -2421,5 +2546,5 @@ var Fetcher = /*#__PURE__*/function () {
   return Fetcher;
 }();
 
-export { BaseCurrency, ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MINIMUM_LIQUIDITY, NATIVE, Native, NativeCurrency, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
+export { BaseCurrency, ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MCurrencyAmount, MINIMUM_LIQUIDITY, NATIVE, Native, NativeCurrency, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
 //# sourceMappingURL=sdk.esm.js.map

@@ -5,7 +5,11 @@ export declare enum ChainId {
     TESTNET = 7001,
     GÖRLI = 5,
     MUMBAI = 80001,
-    BSC = 97
+    POLYGON = 137,
+    BSC_MAINNET = 56,
+    BSC_TESTNET = 97,
+    BTC_MAINNET = 0,
+    BTC_TESTNET = 18332
 }
 export declare enum TradeType {
     EXACT_INPUT = 0,

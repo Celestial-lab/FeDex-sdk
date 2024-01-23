@@ -106,6 +106,22 @@ export const WETH = {
     'Wrapped ETH',
     'https://blockscout.scroll.io/'
   ),
+  [ChainId.BTC_MAINNET]: new Token(
+    ChainId.BTC_MAINNET,
+    addresses[ChainId.BTC_MAINNET].WETH,
+    8,
+    'WZETA',
+    'Wrapped ZETA',
+    'https://zetachain-athens-3.blockscout.com/'
+  ),
+  [ChainId.BTC_TESTNET]: new Token(
+    ChainId.BTC_TESTNET,
+    addresses[ChainId.BTC_TESTNET].WETH,
+    8,
+    'WZETA',
+    'Wrapped ZETA',
+    'https://zetachain-athens-3.blockscout.com/'
+  ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
@@ -130,9 +146,25 @@ export const WETH = {
     'Wrapped MATIC',
     'https://mumbai.polygonscan.com/'
   ),
-  [ChainId.BSC]: new Token(
-    ChainId.BSC,
-    addresses[ChainId.BSC].WETH,
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    addresses[ChainId.POLYGON].WETH,
+    18,
+    'WMATIC',
+    'Wrapped MATIC',
+    'https://polygonscan.com/'
+  ),
+  [ChainId.BSC_MAINNET]: new Token(
+    ChainId.BSC_MAINNET,
+    addresses[ChainId.BSC_MAINNET].WETH,
+    18,
+    'WBNB',
+    'Wrapped BNB',
+    'https://bscscan.com/'
+  ),
+  [ChainId.BSC_TESTNET]: new Token(
+    ChainId.BSC_TESTNET,
+    addresses[ChainId.BSC_TESTNET].WETH,
     18,
     'WBNB',
     'Wrapped BNB',
@@ -145,6 +177,16 @@ export const NATIVE = {
     name: 'Ether',
     symbol: 'ETH',
     decimals: 18,
+  },
+  [ChainId.BTC_MAINNET]: {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    decimals: 8,
+  },
+  [ChainId.BTC_TESTNET]: {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    decimals: 8,
   },
   [ChainId.TESTNET]: {
     name: 'Zeta',
@@ -161,8 +203,18 @@ export const NATIVE = {
     symbol: 'Matic',
     decimals: 18,
   },
-  [ChainId.BSC]: {
+  [ChainId.POLYGON]: {
+    name: 'Matic',
+    symbol: 'Matic',
+    decimals: 18,
+  },
+  [ChainId.BSC_TESTNET]: {
     name: 'Binance Chain Native Token Testnet',
+    symbol: 'tBNB',
+    decimals: 18,
+  },
+  [ChainId.BSC_MAINNET]: {
+    name: 'Binance Chain Native Token',
     symbol: 'BNB',
     decimals: 18,
   }
