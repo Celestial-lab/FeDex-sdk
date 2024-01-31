@@ -23,8 +23,8 @@ var addresses = {
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 },
-	"167007": {
-	WETH: "0xf86E3b4cde65c0cd59580Ee3F8dd34343E23ea5B",
+	"168587773": {
+	WETH: "0x4200000000000000000000000000000000000023",
 	SwapFactory: "0xd0034aEe8e1d8d8919A401c546Ed2d0F2A4C90F1",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0xeE25c38c7A340501379472086Ed9AeCC029314B2"
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 167007] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 168587773] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH taiko');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH blast');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.jolnir.taiko.xyz/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.blastscan.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
