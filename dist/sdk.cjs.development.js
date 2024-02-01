@@ -506,8 +506,8 @@ function currencyEquals(currencyA, currencyB) {
 }
 var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[exports.ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_MAINNET, addresses[exports.ChainId.BTC_MAINNET].WETH, 8, 'BTC', 'BTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_TESTNET, addresses[exports.ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.GÖRLI] = /*#__PURE__*/new Token(exports.ChainId.GÖRLI, addresses[exports.ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/new Token(exports.ChainId.MUMBAI, addresses[exports.ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[exports.ChainId.POLYGON] = /*#__PURE__*/new Token(exports.ChainId.POLYGON, addresses[exports.ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[exports.ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_MAINNET, addresses[exports.ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[exports.ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_TESTNET, addresses[exports.ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
 var NATIVE = (_NATIVE = {}, _NATIVE[exports.ChainId.MAINNET] = {
-  name: 'Ether',
-  symbol: 'ETH',
+  name: 'Zeta mainnet',
+  symbol: 'ZETA',
   decimals: 18
 }, _NATIVE[exports.ChainId.BTC_MAINNET] = {
   name: 'Bitcoin',

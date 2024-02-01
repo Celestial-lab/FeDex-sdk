@@ -174,8 +174,8 @@ export const WETH = {
 
 export const NATIVE = {
   [ChainId.MAINNET]: {
-    name: 'Ether',
-    symbol: 'ETH',
+    name: 'Zeta mainnet',
+    symbol: 'ZETA',
     decimals: 18,
   },
   [ChainId.BTC_MAINNET]: {
