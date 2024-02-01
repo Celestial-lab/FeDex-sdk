@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://blockscout.scroll.io/'
+    'WZETA',
+    'Wrapped ZETA',
+    'https://zetachain.blockscout.com/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WZETA',
     'Wrapped ZETA',
-    'https://explorer.zetachain.com/'
+    'https://zetachain-athens-3.blockscout.com/'
   )
 }

@@ -12,37 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
+	"7000": {
+	SwapFactory: "0xc6ef2008a5a717329648420F429dA53d3351cF5E",
+	Factory_Init_Code_Hash: "0xc245af4fa6f1a0c19e8d9c97d5554188ac0e1c296e4085890c7144387fddf0fa",
+	SwapRouter: "0xe54Fd41E0ADc21609cAe88C35645b6EfFF24ea4b",
+	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf"
+},
 	"7001": {
-	owner: "0xC6Af57a80C7769DC530ff6590f79F94EE57E2417",
-	Multicall2: "0x6f81D0f4A0AfeDEDdB1EB8e0d428E219B3eaD07B",
-	QuillToken: "0x76f308Ef2302435CabdF69e9db484E3f6e409479",
 	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
-	MantaStake: "0xf84fB4a80DD211408699afa9C7A9D236Feff1dD8",
-	Timelock: "0x88396C6c872aA12e9C68bD225c16dEa959361eaD",
-	QuillFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
-	WagyuVault: "0x0FE86ee7437608F8B8f6185dab1667Ac44e0b59b",
-	VaultOwner: "0x8acDeCCd75552B56A4cB1aBC4842371d7e55699b",
-	MantaStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
-	WAGFarmV1: "0x01589eEEEBD94540f00a4202865872c9671Fa9fe",
-	MantaLockVault: "0xd424DE6751cF8A7D93aFf5E6feaA0DF3dc5b5266",
 	SwapFactory: "0xF1458D32951b6b1A7366bc3da24C3F9652117a37",
 	Factory_Init_Code_Hash: "0xc245af4fa6f1a0c19e8d9c97d5554188ac0e1c296e4085890c7144387fddf0fa",
 	SwapRouter: "0x870D1FB34b3370477E2B25f21E0C09332bcC033A"
-},
-	"534352": {
-	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
-	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
-	owner: "0xd217Cff34bBDa5C7D88e179bAADeBF96D9D9E150",
-	Multicall2: "0x7d3D776556823cD8086C2f321EaFDE1AB9CCE401",
-	SwapRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
-	ScrollToken: "0x786214Ee3EB0fE1d96AbBbaaADb06E869036f862",
-	WETH: "0x5300000000000000000000000000000000000004",
-	ScrollStake: "0xd0338acDCaAda6E306B613c437a8Ad7B0118b9a9",
-	Timelock: "0x4C4Bdf7b579494A44a314c5D40dE5B53502F6608",
-	ScrollFarm: "0x0FE7711dD2A622725FfB30f378145e1D40127f80",
-	WagyuVault: "0xD3A8555607e18142a1AC634c66C15671E6A56686",
-	VaultOwner: "0xe804675EbBBB3c70Cf66F12d2f7ADB8934F3e5F8",
-	WAGStakingFactory: "0x211E287FD967a51D7A1F8c2Fb7788c6142e084b1"
 }
 };
 
@@ -50,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 534352] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -69,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -471,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://explorer.zetachain.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
