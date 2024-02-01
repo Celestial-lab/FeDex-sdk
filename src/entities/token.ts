@@ -106,6 +106,14 @@ export const WETH = {
     'Wrapped ZETA',
     'https://zetachain.blockscout.com/'
   ),
+  [ChainId.ETH]: new Token(
+    ChainId.ETH,
+    addresses[ChainId.ETH].WETH,
+    18,
+    'WETH',
+    'Wrapped ETH',
+    'https://etherscan.io/'
+  ),
   [ChainId.BTC_MAINNET]: new Token(
     ChainId.BTC_MAINNET,
     addresses[ChainId.BTC_MAINNET].WETH,
@@ -194,7 +202,12 @@ export const NATIVE = {
     decimals: 18,
   },
   [ChainId.GÖRLI]: {
-    name: 'Ether',
+    name: 'Ethereum Goerli',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  [ChainId.ETH]: {
+    name: 'Ethereum',
     symbol: 'ETH',
     decimals: 18,
   },

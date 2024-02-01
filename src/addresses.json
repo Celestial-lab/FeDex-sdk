@@ -11,6 +11,9 @@
     "Factory_Init_Code_Hash": "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
     "SwapRouter": "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
   },
+  "1": {
+    "WETH": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+  },
   "5": {
     "WETH": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
   },

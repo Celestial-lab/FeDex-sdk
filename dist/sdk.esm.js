@@ -12,6 +12,9 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
+	"1": {
+	WETH: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+},
 	"5": {
 	WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
 },
@@ -53,6 +56,7 @@ var ChainId;
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
+  ChainId[ChainId["ETH"] = 1] = "ETH";
   ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
   ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
   ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
@@ -504,7 +508,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(ChainId.BTC_MAINNET, addresses[ChainId.BTC_MAINNET].WETH, 8, 'BTC.BTC', 'BTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(ChainId.BTC_TESTNET, addresses[ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, addresses[ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(ChainId.BSC_MAINNET, addresses[ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(ChainId.BSC_TESTNET, addresses[ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.ETH] = /*#__PURE__*/new Token(ChainId.ETH, addresses[ChainId.ETH].WETH, 18, 'WETH', 'Wrapped ETH', 'https://etherscan.io/'), _WETH[ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(ChainId.BTC_MAINNET, addresses[ChainId.BTC_MAINNET].WETH, 8, 'BTC.BTC', 'BTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(ChainId.BTC_TESTNET, addresses[ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, addresses[ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(ChainId.BSC_MAINNET, addresses[ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(ChainId.BSC_TESTNET, addresses[ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
 var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
   name: 'Zeta mainnet',
   symbol: 'ZETA',
@@ -522,7 +526,11 @@ var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
   symbol: 'ZETA',
   decimals: 18
 }, _NATIVE[ChainId.GÖRLI] = {
-  name: 'Ether',
+  name: 'Ethereum Goerli',
+  symbol: 'ETH',
+  decimals: 18
+}, _NATIVE[ChainId.ETH] = {
+  name: 'Ethereum',
   symbol: 'ETH',
   decimals: 18
 }, _NATIVE[ChainId.MUMBAI] = {
