@@ -33,10 +33,10 @@ var addresses = {
 	WETH: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
 },
 	"7000": {
-	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
-	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
-	SwapRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
-	WETH: "0x5300000000000000000000000000000000000004"
+	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8",
+	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf"
 },
 	"7001": {
 	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
@@ -77,7 +77,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -504,7 +504,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[exports.ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_MAINNET, addresses[exports.ChainId.BTC_MAINNET].WETH, 8, 'BTC', 'BTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_TESTNET, addresses[exports.ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.GÖRLI] = /*#__PURE__*/new Token(exports.ChainId.GÖRLI, addresses[exports.ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/new Token(exports.ChainId.MUMBAI, addresses[exports.ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[exports.ChainId.POLYGON] = /*#__PURE__*/new Token(exports.ChainId.POLYGON, addresses[exports.ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[exports.ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_MAINNET, addresses[exports.ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[exports.ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_TESTNET, addresses[exports.ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[exports.ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_MAINNET, addresses[exports.ChainId.BTC_MAINNET].WETH, 8, 'BTC', 'BTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BTC_TESTNET, addresses[exports.ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[exports.ChainId.GÖRLI] = /*#__PURE__*/new Token(exports.ChainId.GÖRLI, addresses[exports.ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/new Token(exports.ChainId.MUMBAI, addresses[exports.ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[exports.ChainId.POLYGON] = /*#__PURE__*/new Token(exports.ChainId.POLYGON, addresses[exports.ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[exports.ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_MAINNET, addresses[exports.ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[exports.ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.BSC_TESTNET, addresses[exports.ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
 var NATIVE = (_NATIVE = {}, _NATIVE[exports.ChainId.MAINNET] = {
   name: 'Ether',
   symbol: 'ETH',

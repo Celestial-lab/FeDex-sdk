@@ -102,9 +102,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://blockscout.scroll.io/'
+    'WZETA',
+    'Wrapped ZETA',
+    'https://zetachain.blockscout.com/'
   ),
   [ChainId.BTC_MAINNET]: new Token(
     ChainId.BTC_MAINNET,
