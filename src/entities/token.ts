@@ -110,9 +110,9 @@ export const WETH = {
     ChainId.BTC_MAINNET,
     addresses[ChainId.BTC_MAINNET].WETH,
     8,
-    'BTC',
+    'BTC.BTC',
     'BTC ZETA',
-    'https://zetachain-athens-3.blockscout.com/'
+    'https://zetachain.blockscout.com/'
   ),
   [ChainId.BTC_TESTNET]: new Token(
     ChainId.BTC_TESTNET,
@@ -120,7 +120,7 @@ export const WETH = {
     8,
     'tBTC',
     'tBTC ZETA',
-    'https://zetachain-athens-3.blockscout.com/'
+    'https://zetachain.blockscout.com/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -128,7 +128,7 @@ export const WETH = {
     18,
     'WZETA',
     'Wrapped ZETA',
-    'https://zetachain-athens-3.blockscout.com/'
+    'https://zetachain.blockscout.com/'
   ),
   [ChainId.GÖRLI]: new Token(
     ChainId.GÖRLI,

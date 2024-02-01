@@ -8,7 +8,7 @@ export declare enum ChainId {
     POLYGON = 137,
     BSC_MAINNET = 56,
     BSC_TESTNET = 97,
-    BTC_MAINNET = 0,
+    BTC_MAINNET = 8332,
     BTC_TESTNET = 18332
 }
 export declare enum TradeType {

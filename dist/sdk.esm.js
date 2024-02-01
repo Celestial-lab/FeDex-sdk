@@ -12,9 +12,6 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"0": {
-	WETH: "0x65a45c57636f9BcCeD4fe193A602008578BcA90b"
-},
 	"5": {
 	WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
 },
@@ -39,6 +36,9 @@ var addresses = {
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
 },
+	"8332": {
+	WETH: "0x13A0c5930C028511Dc02665E7285134B6d11A5f4"
+},
 	"18332": {
 	WETH: "0x65a45c57636f9BcCeD4fe193A602008578BcA90b"
 },
@@ -58,7 +58,7 @@ var ChainId;
   ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
   ChainId[ChainId["BSC_MAINNET"] = 56] = "BSC_MAINNET";
   ChainId[ChainId["BSC_TESTNET"] = 97] = "BSC_TESTNET";
-  ChainId[ChainId["BTC_MAINNET"] = 0] = "BTC_MAINNET";
+  ChainId[ChainId["BTC_MAINNET"] = 8332] = "BTC_MAINNET";
   ChainId[ChainId["BTC_TESTNET"] = 18332] = "BTC_TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -504,7 +504,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(ChainId.BTC_MAINNET, addresses[ChainId.BTC_MAINNET].WETH, 8, 'BTC', 'BTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(ChainId.BTC_TESTNET, addresses[ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, addresses[ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(ChainId.BSC_MAINNET, addresses[ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(ChainId.BSC_TESTNET, addresses[ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_MAINNET] = /*#__PURE__*/new Token(ChainId.BTC_MAINNET, addresses[ChainId.BTC_MAINNET].WETH, 8, 'BTC.BTC', 'BTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.BTC_TESTNET] = /*#__PURE__*/new Token(ChainId.BTC_TESTNET, addresses[ChainId.BTC_TESTNET].WETH, 8, 'tBTC', 'tBTC ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain.blockscout.com/'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, addresses[ChainId.GÖRLI].WETH, 18, 'WETH', 'Wrapped ETH', 'https://goerli.etherscan.io/'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, addresses[ChainId.MUMBAI].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://mumbai.polygonscan.com/'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, addresses[ChainId.POLYGON].WETH, 18, 'WMATIC', 'Wrapped MATIC', 'https://polygonscan.com/'), _WETH[ChainId.BSC_MAINNET] = /*#__PURE__*/new Token(ChainId.BSC_MAINNET, addresses[ChainId.BSC_MAINNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://bscscan.com/'), _WETH[ChainId.BSC_TESTNET] = /*#__PURE__*/new Token(ChainId.BSC_TESTNET, addresses[ChainId.BSC_TESTNET].WETH, 18, 'WBNB', 'Wrapped BNB', 'https://testnet.bscscan.com/'), _WETH);
 var NATIVE = (_NATIVE = {}, _NATIVE[ChainId.MAINNET] = {
   name: 'Zeta mainnet',
   symbol: 'ZETA',
