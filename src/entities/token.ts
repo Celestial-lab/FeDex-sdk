@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WUSDC',
-    'Wrapped USDC',
-    'https://scan.zkfair.io/'
+    'WETH',
+    'Wrapped ETH',
+    'https://81457.routescan.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
