@@ -16,7 +16,7 @@ export class Currency {
   /**
    * The only instance of the base class `Currency`.
    */
-  public static readonly ETHER: Currency = new Currency(18, 'ETH', 'ETH on Blast')
+  public static readonly ETHER: Currency = new Currency(18, 'BTC', 'BTC on SaVM')
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.

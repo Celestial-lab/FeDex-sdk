@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
+	"3110": {
+	WETH: "0x3607703ccF378999D5953387B56453c3cd22896F",
+	SwapFactory: "0xc008f29AaddA007b123919a5a0561c1B2E37864A",
+	Factory_Init_Code_Hash: "0x7bc5a740e8b1feab775db7e8cd1aa9b9395b6a777d20aff84b72c22f07075ea3",
+	SwapRouter: "0x41cbaf6d2cb23FFD76E8ADfa5e413dDa0CFf3741"
+},
 	"81457": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	WETH: "0x4300000000000000000000000000000000000004"
-},
-	"168587773": {
-	WETH: "0x4200000000000000000000000000000000000023",
-	SwapFactory: "0x64f41E220E3E842853177551FAc14b8B0dCF8aEd",
-	Factory_Init_Code_Hash: "0xf7ee1ccb9fcc299106f6cefb362481eb14d953cdf2e5150b72f79e748ae8cd50",
-	SwapRouter: "0xDDE336c5Fda4997a8c87aF0790faeab374e1683C"
 }
 };
 
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 81457] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 168587773] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 3110] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on Blast');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'BTC', 'BTC on SaVM');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blastscan.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.blastscan.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://blastscan.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://testnet.svmscan.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SDVM-LP', 'SavmDEX LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

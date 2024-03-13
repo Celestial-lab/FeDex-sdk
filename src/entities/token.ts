@@ -71,16 +71,16 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
+    'WBTC',
+    'Wrapped BTC',
     'https://blastscan.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://testnet.blastscan.io/'
+    'WBTC',
+    'Wrapped BTC',
+    'https://testnet.svmscan.io/'
   )
 }
