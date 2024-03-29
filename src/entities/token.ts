@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WBTC',
     'Wrapped BTC',
-    'https://blastscan.io/'
+    'https://scan-mainnet.bevm.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WBTC',
     'Wrapped BTC',
-    'https://testnet.svmscan.io/'
+    'https://scan-testnet.bevm.io/'
   )
 }
