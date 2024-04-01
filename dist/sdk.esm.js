@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"81457": {
-	SwapFactory: "0x66346aac17d0e61156AC5F2A934ccF2a9BDe4c65",
-	Factory_Init_Code_Hash: "0x376acff9b60b853f5ccc9f1caecb8dcf722793593330ac58aac8a880a3eb8b9e",
-	SwapRouter: "0xC568C87275D256b432ed40c0A0C287F76e9E007e",
-	WETH: "0x4300000000000000000000000000000000000004"
-},
 	"168587773": {
 	WETH: "0x4200000000000000000000000000000000000023",
 	SwapFactory: "0x64f41E220E3E842853177551FAc14b8B0dCF8aEd",
 	Factory_Init_Code_Hash: "0xf7ee1ccb9fcc299106f6cefb362481eb14d953cdf2e5150b72f79e748ae8cd50",
 	SwapRouter: "0xDDE336c5Fda4997a8c87aF0790faeab374e1683C"
+},
+	"666666666": {
+	SwapFactory: "0x45c1f8AF23Ea55e51927EE9A4d456fa7BCc5F0Fe",
+	Factory_Init_Code_Hash: "0x7faf12112428344b00c4d7705fa4ae776431a7c8dbaa562b182c2340dc27fc0b",
+	SwapRouter: "0x38AD9cd354487ff2788eC797795e746B37d3B850",
+	WETH: "0xEb54dACB4C2ccb64F8074eceEa33b5eBb38E5387"
 }
 };
 
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 81457] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 666666666] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 168587773] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH Native');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'DEGEN', 'DEGEN l3');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://81457.routescan.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.blastscan.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WDEGEN', 'Wrapped DEGEN', 'https://explorer.degen.tips/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.blastscan.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'BD-LP', 'BlastDex LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'DDD-LP', 'DegenDex LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

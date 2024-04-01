@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://81457.routescan.io/'
+    'WDEGEN',
+    'Wrapped DEGEN',
+    'https://explorer.degen.tips/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
