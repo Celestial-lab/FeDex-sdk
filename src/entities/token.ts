@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WBTC',
     'Wrapped BTC',
-    'https://scan-testnet.bevm.io/'
+    'https://haven-explorer.bsquared.network/'
   )
 }

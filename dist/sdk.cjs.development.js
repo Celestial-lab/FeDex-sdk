@@ -17,17 +17,17 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"3110": {
-	WETH: "0x3607703ccF378999D5953387B56453c3cd22896F",
-	SwapFactory: "0xc008f29AaddA007b123919a5a0561c1B2E37864A",
-	Factory_Init_Code_Hash: "0x7bc5a740e8b1feab775db7e8cd1aa9b9395b6a777d20aff84b72c22f07075ea3",
-	SwapRouter: "0x41cbaf6d2cb23FFD76E8ADfa5e413dDa0CFf3741"
+	"1102": {
+	SwapFactory: "0x57A77d65da43b6dA07146299d06e423aE494a724",
+	Factory_Init_Code_Hash: "0xfa36b582e85a871dc69d1cf4ec0a87b582cc5df7763e362dc4be5a0eefdf63dc",
+	SwapRouter: "0x211a0a4F15C7EC6Da6d693266E6675A17f2b0715",
+	WETH: "0x720114819c30558f8c5807aB76A5030febB6cAaE"
 },
 	"11501": {
-	SwapFactory: "0xc008f29AaddA007b123919a5a0561c1B2E37864A",
-	Factory_Init_Code_Hash: "0x1c0537b903216d57cf71084839c4c1a9fe1824491e77ef83506c81615b73866f",
-	SwapRouter: "0x41cbaf6d2cb23FFD76E8ADfa5e413dDa0CFf3741",
-	WETH: "0xb5136feba197f5ff4b765e5b50c74db717796dcd"
+	SwapFactory: "0x57A77d65da43b6dA07146299d06e423aE494a724",
+	Factory_Init_Code_Hash: "0xfa36b582e85a871dc69d1cf4ec0a87b582cc5df7763e362dc4be5a0eefdf63dc",
+	SwapRouter: "0x211a0a4F15C7EC6Da6d693266E6675A17f2b0715",
+	WETH: "0x720114819c30558f8c5807aB76A5030febB6cAaE"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 11501] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 3110] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 1102] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -49,7 +49,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'BTC', 'BTC on BEVM');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'BTC', 'BTC Native on B2squared');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://scan-mainnet.bevm.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://scan-testnet.bevm.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://scan-mainnet.bevm.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WBTC', 'Wrapped BTC', 'https://haven-explorer.bsquared.network/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SAD-LP', 'SavmDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'BS-LP', 'BSwap LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
