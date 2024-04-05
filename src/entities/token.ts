@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WBTC',
-    'Wrapped BTC',
-    'https://scan-mainnet.bevm.io/'
+    'ABTC',
+    'AINN Layer2 BTC',
+    'https://mainnet-explorer.anvm.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
