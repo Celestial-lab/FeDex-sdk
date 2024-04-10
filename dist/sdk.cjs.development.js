@@ -23,11 +23,11 @@ var addresses = {
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 },
-	"167007": {
-	WETH: "0xf86E3b4cde65c0cd59580Ee3F8dd34343E23ea5B",
-	SwapFactory: "0xd0034aEe8e1d8d8919A401c546Ed2d0F2A4C90F1",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0xeE25c38c7A340501379472086Ed9AeCC029314B2"
+	"167008": {
+	WETH: "0x0011e559da84dde3f841e22dc33f3adbf184d84a",
+	SwapFactory: "0x4b10E27443E821eA9a6dcFED763E1f543593feea",
+	Factory_Init_Code_Hash: "0xe73d3498e7715427a4a9565e50f8fc9571c2cf9457c633dd1ad2d5b0324f40eb",
+	SwapRouter: "0xdad398Df5Eec85b920d14AF20B64823747387090"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 167007] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 167008] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.jolnir.taiko.xyz/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://katla.taikoscan.network/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'DKD-LP', 'DaiKoDEX LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
