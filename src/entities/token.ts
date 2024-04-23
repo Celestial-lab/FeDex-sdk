@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://81457.routescan.io/'
+    'https://explorer.gobob.xyz/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
