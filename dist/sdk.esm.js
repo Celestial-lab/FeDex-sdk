@@ -12,16 +12,16 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"1102": {
+	"7001": {
 	WETH: "0x4200000000000000000000000000000000000023",
 	SwapFactory: "0x64f41E220E3E842853177551FAc14b8B0dCF8aEd",
 	Factory_Init_Code_Hash: "0xf7ee1ccb9fcc299106f6cefb362481eb14d953cdf2e5150b72f79e748ae8cd50",
 	SwapRouter: "0xDDE336c5Fda4997a8c87aF0790faeab374e1683C"
 },
 	"60808": {
-	SwapFactory: "0xF8C06120c929DD7b304613De23aa662d18B6B946",
-	Factory_Init_Code_Hash: "0x01cccdf9a745884c5ee0cb83dedee42e79e6c2b641fb7a64e785a75b8fe0b812",
-	SwapRouter: "0x1dae541D9b3345f21df1082531a361bE2D64d2e6",
+	SwapFactory: "0x9098FD85168E916f3d6d0F9B0E5fC2951731E9A9",
+	Factory_Init_Code_Hash: "0xa7e10b7d7f5fe8673dbd3969f6aed05ed254cc647398684353cbbf2cf72c6a2e",
+	SwapRouter: "0x2de9413983d4ADF5b010E94b014e84C8ca95B9bC",
 	WETH: "0x4200000000000000000000000000000000000006"
 }
 };
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 60808] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 1102] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.gobob.xyz/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.blastscan.io/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.gobob.xyz/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://testnet.gobob.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'BOB-LP', 'BoBSwap LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'BOBEX-LP', 'BOBEX LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

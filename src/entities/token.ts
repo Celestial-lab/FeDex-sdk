@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://testnet.blastscan.io/'
+    'https://testnet.gobob.io/'
   )
 }
