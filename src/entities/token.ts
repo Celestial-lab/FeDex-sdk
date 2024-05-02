@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://blastscan.io/'
+    'https://explorer.redstone.xyz/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://testnet.blastscan.io/'
+    'https://garnet.blockscout.com/'
   )
 }
