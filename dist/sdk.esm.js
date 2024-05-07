@@ -12,7 +12,7 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"690": {
+	"7560": {
 	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8",
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 690] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 7560] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 168587773] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on Redstone');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on CyberConnect');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.redstone.xyz/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://garnet.blockscout.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://cyberscan.co/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://garnet.blockscout.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

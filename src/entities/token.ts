@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://explorer.redstone.xyz/'
+    'https://cyberscan.co/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
