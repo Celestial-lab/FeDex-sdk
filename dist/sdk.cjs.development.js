@@ -23,11 +23,11 @@ var addresses = {
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 },
-	"167008": {
-	WETH: "0x0011e559da84dde3f841e22dc33f3adbf184d84a",
-	SwapFactory: "0x4b10E27443E821eA9a6dcFED763E1f543593feea",
+	"167009": {
+	WETH: "0xae2c46ddb314b9ba743c6dee4878f151881333d9",
+	SwapFactory: "0x2cFAe8F731D6a04f3E868deB03ad73576695271A",
 	Factory_Init_Code_Hash: "0xe73d3498e7715427a4a9565e50f8fc9571c2cf9457c633dd1ad2d5b0324f40eb",
-	SwapRouter: "0xdad398Df5Eec85b920d14AF20B64823747387090"
+	SwapRouter: "0xf8279Bad8Cb76B96de38365A05984b7b8f009B17"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 167008] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 167009] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://katla.taikoscan.network/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://hekla.taikoscan.network/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
