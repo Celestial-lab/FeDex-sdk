@@ -17,10 +17,10 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"7560": {
-	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	"62050": {
+	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8",
+	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	WETH: "0x4200000000000000000000000000000000000006"
 },
 	"168587773": {
@@ -34,7 +34,7 @@ var addresses = {
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 7560] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 62050] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 168587773] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on CyberConnect');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on Optopia');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://cyberscan.co/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://garnet.blockscout.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://scan.optopia.ai/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://garnet.blockscout.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://cyberscan.co/'
+    'https://scan.optopia.ai/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
