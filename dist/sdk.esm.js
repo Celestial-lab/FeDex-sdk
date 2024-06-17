@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"195": {
-	WETH: "0xa2aFfd8301BfB3c5b815829f2F509f053556D21B",
-	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
-},
 	"196": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	WETH: "0xe538905cf8410324e03a5a23c1c177a474d59b2b"
+},
+	"2024": {
+	WETH: "0xf6a9f9af54aa796ba749cc7bc11a40b323ab9164",
+	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
 }
 };
 
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 196] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 195] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 2024] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'OKB', 'OKB xlayer');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH swan');
 var ETHER = Currency.ETHER;
 
 var _WETH;
