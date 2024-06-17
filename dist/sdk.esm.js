@@ -20,9 +20,9 @@ var addresses = {
 },
 	"48899": {
 	WETH: "0x4200000000000000000000000000000000000006",
-	SwapFactory: "0xF6305A80E72a7C8B97268A8f4177F4448AB5B47d",
-	Factory_Init_Code_Hash: "0x8a49e2050f99ae97250bcdbae9e2f435e59a4f143aef2a9cb464e75fa1260423",
-	SwapRouter: "0x64CE7214D4ae1122934B7C1471590515fC217e23"
+	SwapFactory: "0xB1839373357d237E602ad4EEa862e8056E89A04B",
+	Factory_Init_Code_Hash: "0x3a6d385d6edd8d83e8b5c046c4b183b4066154d257ec1e7e9eb8216b49a6f727",
+	SwapRouter: "0x5Fa2d8B16BAa561654c8fD536A8C61D23E750281"
 }
 };
 
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'MKO-LP', 'Mushroom LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'WD-LP', 'Woodex LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
