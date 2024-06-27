@@ -23,11 +23,11 @@ var addresses = {
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 },
-	"48899": {
-	WETH: "0x4200000000000000000000000000000000000006",
-	SwapFactory: "0xF6305A80E72a7C8B97268A8f4177F4448AB5B47d",
-	Factory_Init_Code_Hash: "0x8a49e2050f99ae97250bcdbae9e2f435e59a4f143aef2a9cb464e75fa1260423",
-	SwapRouter: "0x64CE7214D4ae1122934B7C1471590515fC217e23"
+	"161221135": {
+	SwapFactory: "0x979D2bB3da0744EfB39C80A28d00D24FbDA8E5E5",
+	Factory_Init_Code_Hash: "0xdc319d4ed4fe7abf68dfaedf7dcdbff4bf57ce8c829f362700c3596b841a462c",
+	SwapRouter: "0x6e84F4ab9b413381e5a928E4c0e47B813f68F487",
+	WETH: "0xd9d6507119ec56ce22a89bedacd6b44d495bff08"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 48899] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 161221135] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH Zircuit');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH Plume');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.zircuit.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://plume-testnet.explorer.caldera.xyz/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'MKO-LP', 'Mushroom LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'GLD-LP', 'Glider LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

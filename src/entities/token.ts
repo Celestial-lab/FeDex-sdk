@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://explorer.zircuit.com/'
+    'https://plume-testnet.explorer.caldera.xyz/'
   )
 }
