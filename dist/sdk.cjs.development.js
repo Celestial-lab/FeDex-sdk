@@ -17,7 +17,7 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"42766": {
+	"7000": {
 	SwapFactory: "0x4C72BF37eb72df730c22Df16ca594f6985130dD6",
 	Factory_Init_Code_Hash: "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
 	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
@@ -34,7 +34,7 @@ var addresses = {
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 161221135] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 

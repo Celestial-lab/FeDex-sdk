@@ -1,7 +1,7 @@
 import JSBI from 'jsbi';
 export declare type BigintIsh = JSBI | bigint | string;
 export declare enum ChainId {
-    MAINNET = 42766,
+    MAINNET = 7000,
     TESTNET = 161221135
 }
 export declare enum TradeType {
