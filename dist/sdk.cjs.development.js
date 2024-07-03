@@ -24,9 +24,9 @@ var addresses = {
 	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
 },
 	"161221135": {
-	SwapFactory: "0x979D2bB3da0744EfB39C80A28d00D24FbDA8E5E5",
-	Factory_Init_Code_Hash: "0xdc319d4ed4fe7abf68dfaedf7dcdbff4bf57ce8c829f362700c3596b841a462c",
-	SwapRouter: "0x6e84F4ab9b413381e5a928E4c0e47B813f68F487",
+	SwapFactory: "0xB0C5e20D05d458EadEa7839E310876a3E5818839",
+	Factory_Init_Code_Hash: "0x591790ef5bd839aafe58cf643a7fd0354054a88ea9363388746f69aa620c1c45",
+	SwapRouter: "0xF3C0Fa77e856Bc009A72a22D0d296a6C66DFa682",
 	WETH: "0xd9d6507119ec56ce22a89bedacd6b44d495bff08"
 }
 };
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'GLD-LP', 'Glider LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'GIZ-LP', 'Gizzard LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
