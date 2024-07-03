@@ -12,7 +12,7 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"196": {
+	"254": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 196] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 254] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 2024] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
