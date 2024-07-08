@@ -17,14 +17,14 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"254": {
+	"196": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	WETH: "0xe538905cf8410324e03a5a23c1c177a474d59b2b"
 },
-	"2024": {
-	WETH: "0xf6a9f9af54aa796ba749cc7bc11a40b323ab9164",
+	"2810": {
+	WETH: "0x5300000000000000000000000000000000000011",
 	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
@@ -34,8 +34,8 @@ var addresses = {
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 254] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 2024] = "TESTNET";
+  ChainId[ChainId["MAINNET"] = 196] = "MAINNET";
+  ChainId[ChainId["TESTNET"] = 2810] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -49,7 +49,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH swan');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH on Morph');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.okx.com/explorer/xlayer'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.okx.com/explorer/xlayer'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer-holesky.morphl2.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
