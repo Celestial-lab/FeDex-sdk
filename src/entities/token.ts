@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WOKB',
-    'Wrapped OKB',
-    'https://www.oklink.com/'
+    'WETH',
+    'Wrapped ETH',
+    'https://explorer-holesky.morphl2.io/'
   )
 }
