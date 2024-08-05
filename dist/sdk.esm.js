@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"42766": {
-	SwapFactory: "0x4C72BF37eb72df730c22Df16ca594f6985130dD6",
-	Factory_Init_Code_Hash: "0x506e8fda3f9c5a6ecea1123a9972c61008916930369061be1ed1f48dd38e344e",
-	SwapRouter: "0xf6ADe7Bb4Be667C367AC0c31e60F3c78e0a2B90e",
-	WETH: "0xD33Db7EC50A98164cC865dfaa64666906d79319C"
-},
 	"48899": {
 	WETH: "0x4200000000000000000000000000000000000006",
 	SwapFactory: "0xB1839373357d237E602ad4EEa862e8056E89A04B",
 	Factory_Init_Code_Hash: "0x3a6d385d6edd8d83e8b5c046c4b183b4066154d257ec1e7e9eb8216b49a6f727",
 	SwapRouter: "0x5Fa2d8B16BAa561654c8fD536A8C61D23E750281"
+},
+	"48900": {
+	SwapFactory: "0x760b06f907e8a3f18c4dc7e55c1aa70ec3bd300a",
+	Factory_Init_Code_Hash: "0x3a6d385d6edd8d83e8b5c046c4b183b4066154d257ec1e7e9eb8216b49a6f727",
+	SwapRouter: "0x5b478600953625994fee83d9fa7796f88890f3ce",
+	WETH: "0x4200000000000000000000000000000000000006"
 }
 };
 
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 42766] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 48900] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 48899] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WUSDC', 'Wrapped USDC', 'https://scan.zkfair.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.zircuit.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.zircuit.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.zircuit.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
