@@ -1,9 +1,9 @@
 {
-  "167000": {
-    "SwapFactory": "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
-    "Factory_Init_Code_Hash": "0x897eea814547b73891ce1398e8459a1af836c60d0542e2ad83de1b6be4fa9ca8",
-    "SwapRouter": "0xf8279Bad8Cb76B96de38365A05984b7b8f009B17",
-    "WETH": "0x6290b1db448306a4422a78c28a52e30fee68cf76"
+  "9736": {
+    "SwapFactory": "0x055F1EDaAe61fc18532aF5b9E9aEcb5D96ec863F",
+    "Factory_Init_Code_Hash": "0xf8c72cbf316c539f2887922094655dda3016eb6a7280e34f4490da88337aaecf",
+    "SwapRouter": "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
+    "WETH": "0x22f0e80797853bef6762a5d72d14eb755acbb930"
   },
   "9738": {
     "SwapFactory": "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",

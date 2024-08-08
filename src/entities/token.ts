@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://taikoscan.io/'
+    'WBOME',
+    'Wrapped BOME',
+    'https://bomescan.org/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,

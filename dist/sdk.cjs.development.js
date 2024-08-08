@@ -17,24 +17,24 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
+	"9736": {
+	SwapFactory: "0x055F1EDaAe61fc18532aF5b9E9aEcb5D96ec863F",
+	Factory_Init_Code_Hash: "0xf8c72cbf316c539f2887922094655dda3016eb6a7280e34f4490da88337aaecf",
+	SwapRouter: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
+	WETH: "0x22f0e80797853bef6762a5d72d14eb755acbb930"
+},
 	"9738": {
 	SwapFactory: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
 	Factory_Init_Code_Hash: "0x307a9e0ea3747629d4ccf9464101c1ba7f55a10e92680e22f95739f2b35d7355",
 	SwapRouter: "0xb45da75B4d7947f055c092bD5f7EdAF91829DD7e",
 	WETH: "0x2D0C85eD852C417e0c82c7d41E062cea14B93AEa"
-},
-	"167000": {
-	SwapFactory: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
-	Factory_Init_Code_Hash: "0x897eea814547b73891ce1398e8459a1af836c60d0542e2ad83de1b6be4fa9ca8",
-	SwapRouter: "0xf8279Bad8Cb76B96de38365A05984b7b8f009B17",
-	WETH: "0x6290b1db448306a4422a78c28a52e30fee68cf76"
 }
 };
 
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 167000] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 9736] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 9738] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -49,7 +49,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://taikoscan.io/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://testnet.bomescan.org/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://bomescan.org/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://testnet.bomescan.org/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
