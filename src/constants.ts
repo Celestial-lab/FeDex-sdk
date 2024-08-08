@@ -6,7 +6,7 @@ export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
   MAINNET = 167000,
-  TESTNET = 9789
+  TESTNET = 9738
 }
 
 export enum TradeType {

@@ -12,11 +12,11 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"9789": {
-	SwapFactory: "0x10a2feB89E21DF59190Dd4b238597C771cb4C347",
-	Factory_Init_Code_Hash: "0x63149786b013fea3dfe71f916c27b30bd17a5fec74fcdedc622746ce1b877ad1",
-	SwapRouter: "0x2E9E609Af3aA00241092f77dfe2A6a7DccaF5CC2",
-	WETH: "0x6290b1db448306a4422a78c28a52e30fee68cf76"
+	"9738": {
+	SwapFactory: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
+	Factory_Init_Code_Hash: "0x307a9e0ea3747629d4ccf9464101c1ba7f55a10e92680e22f95739f2b35d7355",
+	SwapRouter: "0xb45da75B4d7947f055c092bD5f7EdAF91829DD7e",
+	WETH: "0x2D0C85eD852C417e0c82c7d41E062cea14B93AEa"
 },
 	"167000": {
 	SwapFactory: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 167000] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 9789] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 9738] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'TABI', 'Tabi');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'BOME', 'Bome');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://taikoscan.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WTABI', 'Wrapped TABI', 'https://testnet.tabiscan.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://taikoscan.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://testnet.bomescan.org/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

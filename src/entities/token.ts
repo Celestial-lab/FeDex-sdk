@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WTABI',
-    'Wrapped TABI',
-    'https://testnet.tabiscan.com/'
+    'WBOME',
+    'Wrapped BOME',
+    'https://testnet.bomescan.org/'
   )
 }
