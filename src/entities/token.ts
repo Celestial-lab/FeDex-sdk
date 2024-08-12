@@ -80,7 +80,7 @@ export const WETH = {
     addresses[ChainId.TESTNET].WETH,
     18,
     'WBOME',
-    'Wrapped BOME',
+    'Wrapped ZERO',
     'https://testnet.bomescan.org/'
   )
 }
