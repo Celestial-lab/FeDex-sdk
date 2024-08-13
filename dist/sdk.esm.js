@@ -15,8 +15,8 @@ var addresses = {
 	"282": {
 	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
 	Factory_Init_Code_Hash: "0x4771bc3edb7bf2709ec15409fc957da6cfad8c61b95b6aabc9dc7044a4ba49b2",
-	SwapRouter: "0x692B906194368F794C6a2A260aDd83CF129b1897",
-	WETH: "0x73fd77fb26192a3fe4f5efb9eba5bb5f6cf96742"
+	SwapRouter: "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
+	WETH: "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
 },
 	"9736": {
 	SwapFactory: "0x055F1EDaAe61fc18532aF5b9E9aEcb5D96ec863F",
