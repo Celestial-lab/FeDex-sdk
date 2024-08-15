@@ -18,11 +18,11 @@ var addresses = {
 	SwapRouter: "0x9E1109725563f47539c11D3B840a9A687468083B",
 	WETH: "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
 },
-	"9736": {
-	SwapFactory: "0x055F1EDaAe61fc18532aF5b9E9aEcb5D96ec863F",
-	Factory_Init_Code_Hash: "0xf8c72cbf316c539f2887922094655dda3016eb6a7280e34f4490da88337aaecf",
-	SwapRouter: "0xD524C9d55C5c10B7b5da94539BF61eAad6D054A7",
-	WETH: "0x22f0e80797853bef6762a5d72d14eb755acbb930"
+	"388": {
+	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
+	Factory_Init_Code_Hash: "0xa7bf14c5ac3cb84df20b4631b651b82c638217eee65fe0df4673089b96d27dfc",
+	SwapRouter: "0x8De5eCAEF2738b7C4193E16b70e6efC346788E10",
+	WETH: "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
 }
 };
 
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 9736] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 388] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 282] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'zkTCRO', 'ZK EVM Cronos');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'zkCRO', 'ZK EVM Cronos');
 var ETHER = Currency.ETHER;
 
 var _WETH;
