@@ -20,8 +20,8 @@ var addresses = {
 },
 	"388": {
 	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
-	Factory_Init_Code_Hash: "0xa7bf14c5ac3cb84df20b4631b651b82c638217eee65fe0df4673089b96d27dfc",
-	SwapRouter: "0x8De5eCAEF2738b7C4193E16b70e6efC346788E10",
+	Factory_Init_Code_Hash: "0x0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
+	SwapRouter: "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
 	WETH: "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
 }
 };
