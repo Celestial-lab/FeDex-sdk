@@ -11,7 +11,7 @@ var address = require('@ethersproject/address');
 var _Big = _interopDefault(require('big.js'));
 var toFormat = _interopDefault(require('toformat'));
 var _Decimal = _interopDefault(require('decimal.js-light'));
-var solidity = require('@ethersproject/solidity');
+var viem = require('viem');
 var contracts = require('@ethersproject/contracts');
 var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
@@ -19,13 +19,13 @@ var providers = require('@ethersproject/providers');
 var addresses = {
 	"282": {
 	SwapFactory: "0xA263A267cbe3b124a76b06e5E5CC5BDF211D1a80",
-	Factory_Init_Code_Hash: "0xb2750d9f5e245984bf5f2933d1e62ca1dde14cc85b182d3aa1408ec9aff93e16",
+	Factory_Init_Code_Hash: "b2750d9f5e245984bf5f2933d1e62ca1dde14cc85b182d3aa1408ec9aff93e16",
 	SwapRouter: "0x9E1109725563f47539c11D3B840a9A687468083B",
 	WETH: "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
 },
 	"388": {
 	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
-	Factory_Init_Code_Hash: "0x0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
+	Factory_Init_Code_Hash: "0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
 	SwapRouter: "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
 	WETH: "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
 }
@@ -770,6 +770,46 @@ var Price = /*#__PURE__*/function (_Fraction) {
 }(Fraction);
 
 var PAIR_ADDRESS_CACHE = {};
+
+var composeKey = function composeKey(token0, token1) {
+  return token0.chainId + "-" + token0.address + "-" + token1.address;
+};
+
+var EMPTY_INPU_HASH = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470';
+var ZKSYNC_PREFIX = '0x2020dba91b30cc0006188af794c2fb30dd8520db7e2c088b7fc7c103c00ca494'; // keccak256('zksyncCreate2')
+
+function getCreate2AddressZkSync(from, salt, initCodeHash) {
+  return viem.getAddress( // @ts-ignore
+  "0x" + viem.keccak256(viem.concat([ZKSYNC_PREFIX, viem.pad(from, {
+    size: 32
+  }), salt, initCodeHash, EMPTY_INPU_HASH])).slice(26));
+}
+
+var computePairAddress = function computePairAddress(_ref) {
+  var _PAIR_ADDRESS_CACHE;
+
+  var factoryAddress = _ref.factoryAddress,
+      tokenA = _ref.tokenA,
+      tokenB = _ref.tokenB;
+
+  var _ref2 = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA],
+      token0 = _ref2[0],
+      token1 = _ref2[1]; // does safety checks
+
+
+  var key = composeKey(token0, token1);
+
+  if (((_PAIR_ADDRESS_CACHE = PAIR_ADDRESS_CACHE) === null || _PAIR_ADDRESS_CACHE === void 0 ? void 0 : _PAIR_ADDRESS_CACHE[key]) === undefined) {
+    var _extends2;
+
+    var getCreate2Address_ = getCreate2AddressZkSync; // @ts-ignore
+
+    PAIR_ADDRESS_CACHE = _extends({}, PAIR_ADDRESS_CACHE, (_extends2 = {}, _extends2[key] = getCreate2Address_(factoryAddress, // @ts-ignore
+    viem.keccak256(viem.encodePacked(['address', 'address'], [token0.address, token1.address])), "0x" + INIT_CODE_HASH), _extends2));
+  }
+
+  return PAIR_ADDRESS_CACHE[key];
+};
 var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
@@ -779,17 +819,12 @@ var Pair = /*#__PURE__*/function () {
   }
 
   Pair.getAddress = function getAddress(tokenA, tokenB) {
-    var _PAIR_ADDRESS_CACHE, _PAIR_ADDRESS_CACHE$t;
-
-    var tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]; // does safety checks
-
-    if (((_PAIR_ADDRESS_CACHE = PAIR_ADDRESS_CACHE) === null || _PAIR_ADDRESS_CACHE === void 0 ? void 0 : (_PAIR_ADDRESS_CACHE$t = _PAIR_ADDRESS_CACHE[tokens[0].address]) === null || _PAIR_ADDRESS_CACHE$t === void 0 ? void 0 : _PAIR_ADDRESS_CACHE$t[tokens[1].address]) === undefined) {
-      var _PAIR_ADDRESS_CACHE2, _extends2, _extends3;
-
-      PAIR_ADDRESS_CACHE = _extends({}, PAIR_ADDRESS_CACHE, (_extends3 = {}, _extends3[tokens[0].address] = _extends({}, (_PAIR_ADDRESS_CACHE2 = PAIR_ADDRESS_CACHE) === null || _PAIR_ADDRESS_CACHE2 === void 0 ? void 0 : _PAIR_ADDRESS_CACHE2[tokens[0].address], (_extends2 = {}, _extends2[tokens[1].address] = address.getCreate2Address(FACTORY_ADDRESS, solidity.keccak256(['bytes'], [solidity.pack(['address', 'address'], [tokens[0].address, tokens[1].address])]), INIT_CODE_HASH), _extends2)), _extends3));
-    }
-
-    return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address];
+    return computePairAddress({
+      // @ts-ignore
+      factoryAddress: FACTORY_ADDRESS,
+      tokenA: tokenA,
+      tokenB: tokenB
+    });
   }
   /**
    * Returns true if the token is either token0 or token1
@@ -2288,6 +2323,7 @@ exports.Token = Token;
 exports.TokenAmount = TokenAmount;
 exports.Trade = Trade;
 exports.WETH = WETH;
+exports.computePairAddress = computePairAddress;
 exports.currencyEquals = currencyEquals;
 exports.inputOutputComparator = inputOutputComparator;
 exports.tradeComparator = tradeComparator;

@@ -2,6 +2,11 @@ import { Price } from './fractions/price';
 import { TokenAmount } from './fractions/tokenAmount';
 import { BigintIsh, ChainId } from '../constants';
 import { Token } from './token';
+export declare const computePairAddress: ({ factoryAddress, tokenA, tokenB, }: {
+    factoryAddress: string;
+    tokenA: Token;
+    tokenB: Token;
+}) => string;
 export declare class Pair {
     readonly liquidityToken: Token;
     private readonly tokenAmounts;

@@ -2,8 +2,8 @@ import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
-import { pack, keccak256 } from '@ethersproject/solidity'
-import { getCreate2Address } from '@ethersproject/address'
+// import { pack } from '@ethersproject/solidity'
+// import { getCreate2Address } from '@ethersproject/address'
 
 import {
   BigintIsh,
@@ -17,34 +17,78 @@ import {
   FEES_DENOMINATOR,
   ChainId
 } from '../constants'
+import {
+  Address,
+  encodePacked,
+  keccak256,
+  // GetCreate2AddressOptions,
+  // toBytes,
+  // Hex,
+  pad,
+  // isBytes,
+  // ByteArray,
+  getAddress,
+  // slice,
+  concat,
+} from 'viem'
 import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 import { Token } from './token'
 
-let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
+let PAIR_ADDRESS_CACHE: { [key: string]: Address } = {}
+
+const composeKey = (token0: Token, token1: Token) => `${token0.chainId}-${token0.address}-${token1.address}`
+
+const EMPTY_INPU_HASH = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+const ZKSYNC_PREFIX = '0x2020dba91b30cc0006188af794c2fb30dd8520db7e2c088b7fc7c103c00ca494' // keccak256('zksyncCreate2')
+
+function getCreate2AddressZkSync(from: string, salt: string, initCodeHash: string): string {
+  return getAddress(
+    // @ts-ignore
+    `0x${keccak256(concat([ZKSYNC_PREFIX, pad(from, { size: 32 }), salt, initCodeHash, EMPTY_INPU_HASH])).slice(26)}`
+  )
+}
+
+export const computePairAddress = ({
+  factoryAddress,
+  tokenA,
+  tokenB,
+}: {
+  factoryAddress: string
+  tokenA: Token
+  tokenB: Token
+}): string => {
+  const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
+  const key = composeKey(token0, token1)
+
+  if (PAIR_ADDRESS_CACHE?.[key] === undefined) {
+    const getCreate2Address_ = getCreate2AddressZkSync
+    // @ts-ignore
+    PAIR_ADDRESS_CACHE = {
+      ...PAIR_ADDRESS_CACHE,
+      [key]: getCreate2Address_(
+        factoryAddress,
+        // @ts-ignore
+        keccak256(encodePacked(['address', 'address'], [token0.address, token1.address])),
+        `0x${INIT_CODE_HASH}`,
+      ),
+    }
+  }
+
+  return PAIR_ADDRESS_CACHE[key]
+}
 
 export class Pair {
   public readonly liquidityToken: Token
   private readonly tokenAmounts: [TokenAmount, TokenAmount]
 
   public static getAddress(tokenA: Token, tokenB: Token): string {
-    const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
-
-    if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address] === undefined) {
-      PAIR_ADDRESS_CACHE = {
-        ...PAIR_ADDRESS_CACHE,
-        [tokens[0].address]: {
-          ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
-          [tokens[1].address]: getCreate2Address(
-            FACTORY_ADDRESS,
-            keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            INIT_CODE_HASH
-          )
-        }
-      }
-    }
-
-    return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address]
+    return computePairAddress({
+      // @ts-ignore
+      factoryAddress: FACTORY_ADDRESS,
+      tokenA,
+      tokenB,
+    })
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {

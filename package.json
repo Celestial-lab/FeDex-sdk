@@ -27,7 +27,8 @@
     "jsbi": "^3.1.1",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
-    "toformat": "^2.0.0"
+    "toformat": "^2.0.0",
+    "viem": "^2.19.4"
   },
   "peerDependencies": {
     "@ethersproject/address": "^5.0.0-beta",
