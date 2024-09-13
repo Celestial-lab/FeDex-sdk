@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://taikoscan.io/'
+    'https://explorer-testnet.soneium.org'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://hekla.taikoscan.network/'
+    'https://explorer-testnet.soneium.org'
   )
 }
