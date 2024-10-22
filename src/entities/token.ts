@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WOKB',
-    'Wrapped OKB',
-    'https://www.okx.com/explorer/xlayer'
+    'WETH',
+    'Wrapped ETH',
+    'https://explorer.morphl2.io/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
