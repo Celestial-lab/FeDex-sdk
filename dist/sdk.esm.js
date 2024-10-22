@@ -19,9 +19,9 @@ var addresses = {
 	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
 },
 	"33139": {
-	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	SwapFactory: "0x0638f46C3D0F19Bc60814Df8Cf651A465dcF300c",
+	Factory_Init_Code_Hash: "0xb3df7be1826e49501e9aae46fc2d2f4c398530cd7d73e7694947df0b26a775a2",
+	SwapRouter: "0x506D85514aDBE28dc196905035d6F97d5ecdA6ee",
 	WETH: "0x48b62137EdfA95a428D35C09E44256a739F6B557"
 }
 };
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'MDF-LP', 'MoodengFi LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
