@@ -19,15 +19,15 @@ var providers = require('@ethersproject/providers');
 var addresses = {
 	"2810": {
 	WETH: "0x5300000000000000000000000000000000000011",
-	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x4507C5cf5Db39a5C2FdB4f0A706881A3F4632eA2"
+	SwapFactory: "0x5B3c9DE373DD33BbA780aEA94265005c5AF831d0",
+	Factory_Init_Code_Hash: "0x26f9bed52c57d07371e9e8c942e654f50584289a6e1cedb5a4f310deff8d2448",
+	SwapRouter: "0xeDBFf6892ed17DE6105Fc475e37B0b7Aa1Fea07b"
 },
 	"2818": {
 	WETH: "0x5300000000000000000000000000000000000011",
-	SwapFactory: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
+	SwapFactory: "0x5B3c9DE373DD33BbA780aEA94265005c5AF831d0",
+	Factory_Init_Code_Hash: "0x26f9bed52c57d07371e9e8c942e654f50584289a6e1cedb5a4f310deff8d2448",
+	SwapRouter: "0xeDBFf6892ed17DE6105Fc475e37B0b7Aa1Fea07b"
 }
 };
 
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'UNI-V2', 'Uniswap V2');
     this.tokenAmounts = tokenAmounts;
   }
 
