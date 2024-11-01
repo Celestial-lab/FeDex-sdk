@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"282": {
-	SwapFactory: "0xA263A267cbe3b124a76b06e5E5CC5BDF211D1a80",
-	Factory_Init_Code_Hash: "b2750d9f5e245984bf5f2933d1e62ca1dde14cc85b182d3aa1408ec9aff93e16",
-	SwapRouter: "0x9E1109725563f47539c11D3B840a9A687468083B",
-	WETH: "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
-},
 	"388": {
 	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
 	Factory_Init_Code_Hash: "0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
 	SwapRouter: "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
 	WETH: "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
+},
+	"11124": {
+	SwapFactory: "0x3E6e01d8e2c89565c3DE9e9631e11d4811b662c7",
+	Factory_Init_Code_Hash: "0100057f6416f5b446f48f7a567c753232ee974058c3a05ee418d1953d953dea",
+	SwapRouter: "0x17B69c0bDB29f2F95e8490F19E4c16764F8BE7Dc",
+	WETH: "0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d"
 }
 };
 
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 388] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 282] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 11124] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'zkCRO', 'ZK EVM Cronos');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'Ethereum on abstract');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://bomescan.org/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'wzkCRO', 'Wrapped zkCRO', 'https://explorer.zkevm.cronos.org/testnet/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://bomescan.org/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.testnet.abs.xyz/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -775,14 +775,14 @@ var composeKey = function composeKey(token0, token1) {
   return token0.chainId + "-" + token0.address + "-" + token1.address;
 };
 
-var EMPTY_INPU_HASH = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470';
+var EMPTY_INPUT_HASH = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470';
 var ZKSYNC_PREFIX = '0x2020dba91b30cc0006188af794c2fb30dd8520db7e2c088b7fc7c103c00ca494'; // keccak256('zksyncCreate2')
 
 function getCreate2AddressZkSync(from, salt, initCodeHash) {
   return getAddress$1( // @ts-ignore
   "0x" + keccak256(concat([ZKSYNC_PREFIX, pad(from, {
     size: 32
-  }), salt, initCodeHash, EMPTY_INPU_HASH])).slice(26));
+  }), salt, initCodeHash, EMPTY_INPUT_HASH])).slice(26));
 }
 
 var computePairAddress = function computePairAddress(_ref) {
@@ -814,7 +814,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'HYX-LP', 'HyBridEx LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

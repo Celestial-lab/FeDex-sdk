@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'wzkCRO',
-    'Wrapped zkCRO',
-    'https://explorer.zkevm.cronos.org/testnet/'
+    'WETH',
+    'Wrapped ETH',
+    'https://explorer.testnet.abs.xyz/'
   )
 }
