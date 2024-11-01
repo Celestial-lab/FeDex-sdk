@@ -6,9 +6,9 @@
     "WETH": "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
   },
   "11124": {
-    "SwapFactory": "0x3E6e01d8e2c89565c3DE9e9631e11d4811b662c7",
-    "Factory_Init_Code_Hash": "0100057f6416f5b446f48f7a567c753232ee974058c3a05ee418d1953d953dea",
-    "SwapRouter": "0x17B69c0bDB29f2F95e8490F19E4c16764F8BE7Dc",
+    "SwapFactory": "0xfeA9556aE85f5aBCa4b147cF9922D2354224d60e",
+    "Factory_Init_Code_Hash": "010005e1cf7d3d9e9d83d55e2a07ee9c2bac326b0ad27643f276c84f588b06ba",
+    "SwapRouter": "0xb06302d5E3c79a21503a892315aF682eC0ebf2a0",
     "WETH": "0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d"
   }
 }
