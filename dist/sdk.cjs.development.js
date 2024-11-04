@@ -23,18 +23,18 @@ var addresses = {
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
 },
-	"33139": {
-	SwapFactory: "0x0638f46C3D0F19Bc60814Df8Cf651A465dcF300c",
-	Factory_Init_Code_Hash: "0xb3df7be1826e49501e9aae46fc2d2f4c398530cd7d73e7694947df0b26a775a2",
-	SwapRouter: "0x506D85514aDBE28dc196905035d6F97d5ecdA6ee",
-	WETH: "0x48b62137EdfA95a428D35C09E44256a739F6B557"
+	"918": {
+	SwapFactory: "0x3278df02Ba45787F4fb5eD46E915205062598e6C",
+	Factory_Init_Code_Hash: "0x350d97c480ddf143ed42f59d29c3657f513a591ec1477e15ef6903975a308f13",
+	SwapRouter: "0xAAfb917Da3046160506C77F276ba03f2dad7EF12",
+	WETH: "0x664a7B2C5d9c45b4bd478CddE3b2888D2033754E"
 }
 };
 
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 33139] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 918] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 195] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'APE', 'APE');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'WSLERF', 'WSLERF');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WAPE', 'Wrapped APE', 'https://apechain.calderaexplorer.xyz'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WWSLERF', 'Wrapped WSLERF', 'https://scan.slerfchain.xyz'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

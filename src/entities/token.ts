@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WAPE',
-    'Wrapped APE',
-    'https://apechain.calderaexplorer.xyz'
+    'WWSLERF',
+    'Wrapped WSLERF',
+    'https://scan.slerfchain.xyz'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
