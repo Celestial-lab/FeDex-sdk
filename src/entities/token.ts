@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WHYB',
-    'Wrapped Hybrid',
-    'https://explorer.buildonhybrid.com/'
+    'WETH',
+    'Wrapped ETH',
+    'https://explorer-sepolia.inkonchain.com/'
   )
 }
