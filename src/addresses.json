@@ -5,10 +5,10 @@
     "SwapRouter": "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
     "WETH": "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
   },
-  "282": {
-    "SwapFactory": "0xA263A267cbe3b124a76b06e5E5CC5BDF211D1a80",
-    "Factory_Init_Code_Hash": "b2750d9f5e245984bf5f2933d1e62ca1dde14cc85b182d3aa1408ec9aff93e16",
-    "SwapRouter": "0x9E1109725563f47539c11D3B840a9A687468083B",
-    "WETH": "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
+  "11124": {
+    "SwapFactory": "0x76D1fC018676f8A973474C24F40A2e14e401b770",
+    "Factory_Init_Code_Hash": "0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
+    "SwapRouter": "0x8De5eCAEF2738b7C4193E16b70e6efC346788E10",
+    "WETH": "0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d"
   }
 }

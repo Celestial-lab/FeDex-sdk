@@ -17,17 +17,17 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"282": {
-	SwapFactory: "0xA263A267cbe3b124a76b06e5E5CC5BDF211D1a80",
-	Factory_Init_Code_Hash: "b2750d9f5e245984bf5f2933d1e62ca1dde14cc85b182d3aa1408ec9aff93e16",
-	SwapRouter: "0x9E1109725563f47539c11D3B840a9A687468083B",
-	WETH: "0xf9bb37013de8cd3f89b3623af9ee1b1b32d872c9"
-},
 	"388": {
 	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
 	Factory_Init_Code_Hash: "0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
 	SwapRouter: "0xECFB3C70Ca767D1195af9c9Dd60542a0097a1D11",
 	WETH: "0xc1bf55ee54e16229d9b369a5502bfe5fc9f20b6d"
+},
+	"11124": {
+	SwapFactory: "0x76D1fC018676f8A973474C24F40A2e14e401b770",
+	Factory_Init_Code_Hash: "0100057997d2356da2fcace883a78fbc2fdfe69e4e8b67e83a05204aee1fa77d",
+	SwapRouter: "0x8De5eCAEF2738b7C4193E16b70e6efC346788E10",
+	WETH: "0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 388] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 282] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 11124] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -49,7 +49,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'zkCRO', 'ZK EVM Cronos');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'EThereum');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://bomescan.org/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'wzkCRO', 'Wrapped zkCRO', 'https://explorer.zkevm.cronos.org/testnet/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://bomescan.org/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer.testnet.abs.xyz/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
