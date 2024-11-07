@@ -18,7 +18,7 @@ var addresses = {
 	SwapRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
 	WETH: "0x5300000000000000000000000000000000000004"
 },
-	"7001": {
+	"202105": {
 	SwapFactory: "0x9cb25c2b7289cbd8955c8165e4b038cccbbf0571",
 	Factory_Init_Code_Hash: "0xfff63748a6df8da5c004d63b60c7cab78b2a34b1b4238d105486aa7ddf7b8453",
 	SwapRouter: "0x9e01b27F4617E5dF17264E45a804590C6c73C55E",
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 202105] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
