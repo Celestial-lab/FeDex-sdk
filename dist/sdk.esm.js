@@ -12,17 +12,17 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"7001": {
-	WETH: "0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf",
-	SwapFactory: "0xeE25c38c7A340501379472086Ed9AeCC029314B2",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
-	SwapRouter: "0x30c50e64c6aA25ff68F6e14B1Df2E1305FA31C05"
-},
-	"534352": {
+	"7000": {
 	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
 	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
 	SwapRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
 	WETH: "0x5300000000000000000000000000000000000004"
+},
+	"7001": {
+	SwapFactory: "0x9cb25c2b7289cbd8955c8165e4b038cccbbf0571",
+	Factory_Init_Code_Hash: "0xfff63748a6df8da5c004d63b60c7cab78b2a34b1b4238d105486aa7ddf7b8453",
+	SwapRouter: "0x9e01b27F4617E5dF17264E45a804590C6c73C55E",
+	WETH: "0x1ee5edc5fe498a2dd82862746d674db2a5e7fef6"
 }
 };
 
@@ -30,11 +30,8 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 534352] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 7001] = "TESTNET";
-  ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
-  ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
-  ChainId[ChainId["BSC"] = 97] = "BSC";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -387,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ZETA', 'ZETA chain');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'TON', 'TON');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -454,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WZETA', 'Wrapped ZETA', 'https://zetachain-athens-3.blockscout.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://blockscout.scroll.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WTON', 'Wrapped TON', 'https://www.oklink.com/duckchain-testnet/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -777,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ABS-LP', 'AbstraDEX LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'QQQ-LP', 'QuackQuack LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

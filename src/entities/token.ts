@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WZETA',
-    'Wrapped ZETA',
-    'https://zetachain-athens-3.blockscout.com/'
+    'WTON',
+    'Wrapped TON',
+    'https://www.oklink.com/duckchain-testnet/'
   )
 }
