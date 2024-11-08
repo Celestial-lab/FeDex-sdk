@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WBERA',
     'Wrapped Bera',
-    'https://explorer.buildonhybrid.com/'
+    'https://bartio.beratrail.io'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
