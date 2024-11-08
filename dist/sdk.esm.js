@@ -18,11 +18,11 @@ var addresses = {
 	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
 	SwapRouter: "0x398F92e15519B4F6F2D5cc42C17FC9ED15De53d8"
 },
-	"33139": {
+	"355110": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	Factory_Init_Code_Hash: "0x3f6b30c43f327785579c52bb6737960e5a4711a09ac8a715be4d54986a51b780",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
-	WETH: "0x48b62137EdfA95a428D35C09E44256a739F6B557"
+	WETH: "0x4b6bcca9a8d707daca69485d14836779aed947e5"
 }
 };
 
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 33139] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 355110] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 195] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'APE', 'APE');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'BFT', 'Bitfinity');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WAPE', 'Wrapped APE', 'https://apechain.calderaexplorer.xyz'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WBFT', 'Wrapped BFT', 'https://explorer.mainnet.bitfinity.network'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.oklink.com/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
