@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://explorer.morphl2.io/'
+    ' https://mainnet.uniscan.xyz/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://explorer-holesky.morphl2.io/'
+    ' https://mainnet.uniscan.xyz/'
   )
 }
