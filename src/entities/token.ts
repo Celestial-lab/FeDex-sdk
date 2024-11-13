@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://blockscout.scroll.io/'
+    'WTON',
+    'Wrapped TON',
+    'https://www.oklink.com/vi/duckchain/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
