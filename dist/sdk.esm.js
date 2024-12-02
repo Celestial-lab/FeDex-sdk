@@ -12,11 +12,11 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"1946": {
-	WETH: "0x4200000000000000000000000000000000000006",
-	SwapFactory: "0x1285E849bB16b7fb1125B2BC57c1e9AAa8008D4a",
-	Factory_Init_Code_Hash: "0xaabf3a5f7b5d9857423158dda8c2ebd63fdf5eb26ec279584ac3161bdc06276a",
-	SwapRouter: "0x053728474De4D4Be527149849f474E393D1dfc24"
+	"57054": {
+	WETH: "0xf66a627199a85c41DcE5Ec7f900177D19d99F7a7",
+	SwapFactory: "0xb60259Bd81ec4ff837B9bD798f73E8B7d1643F46",
+	Factory_Init_Code_Hash: "0xfbb1c364c62fe5333720d17d3b04364fadf85d22019baac1d1dad2b068b3ae4b",
+	SwapRouter: "0xBEd2dD933c5056263E783A9427C3855A83e2a0d1"
 },
 	"167000": {
 	SwapFactory: "0x2cFAe8F731D6a04f3E868deB03ad73576695271A",
@@ -31,7 +31,7 @@ var ChainId;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 167000] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 1946] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 57054] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'ETH', 'ETH sone');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'S', 'Sonic');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer-testnet.soneium.org'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer-testnet.soneium.org'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer-testnet.soneium.org'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WS', 'Wrapped Sonic', 'https://explorer-testnet.soneium.org'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SNF-LP', 'SoneFi LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SPARK-LP', 'Spark LPs');
     this.tokenAmounts = tokenAmounts;
   }
 

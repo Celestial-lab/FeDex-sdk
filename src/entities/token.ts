@@ -79,8 +79,8 @@ export const WETH = {
     ChainId.TESTNET,
     addresses[ChainId.TESTNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
+    'WS',
+    'Wrapped Sonic',
     'https://explorer-testnet.soneium.org'
   )
 }
