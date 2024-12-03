@@ -19,9 +19,9 @@ var providers = require('@ethersproject/providers');
 var addresses = {
 	"57054": {
 	WETH: "0xf66a627199a85c41DcE5Ec7f900177D19d99F7a7",
-	SwapFactory: "0xb60259Bd81ec4ff837B9bD798f73E8B7d1643F46",
-	Factory_Init_Code_Hash: "0xfbb1c364c62fe5333720d17d3b04364fadf85d22019baac1d1dad2b068b3ae4b",
-	SwapRouter: "0xBEd2dD933c5056263E783A9427C3855A83e2a0d1"
+	SwapFactory: "0x163c6be160a30a9d1C3A53bAA58f9E844C93d395",
+	Factory_Init_Code_Hash: "0x68fcafb4b49bc63ea3f5a214f24608f03ae29be0f261c307f2da2815e1dcc51c",
+	SwapRouter: "0x1773c1945F2F3Fe6facb726a62350F49958934Ac"
 },
 	"167000": {
 	SwapFactory: "0x2cFAe8F731D6a04f3E868deB03ad73576695271A",
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SPARK-LP', 'Spark LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'SBOOM-LP', 'SBoom LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
