@@ -71,7 +71,7 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'wS',
+    'WSONIC',
     'Wrapped Sonic',
     'https://explorer.soniclabs.com/'
   ),

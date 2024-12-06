@@ -20,8 +20,8 @@ var addresses = {
 	"146": {
 	SwapFactory: "0x3638Ca700D67D560Be2A2d0DD471640957564829",
 	Factory_Init_Code_Hash: "0x3bed42f03907b5c612da7c772b49cf2764194400bdae02522522d4137400b19a",
-	SwapRouter: "0xb60259Bd81ec4ff837B9bD798f73E8B7d1643F46",
-	WETH: "0xC55Ce3c2C18caB88a5b49851289A35F1E1c467E9"
+	SwapRouter: "0xda9D42C7611e260B2F82014Fa5aC9d49b958e174",
+	WETH: "0x83ad0f601fAEE9d867e5f22fFDcd812885EC2f62"
 },
 	"57054": {
 	WETH: "0xf66a627199a85c41DcE5Ec7f900177D19d99F7a7",
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'wS', 'Wrapped Sonic', 'https://explorer.soniclabs.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WS', 'Wrapped Sonic', 'https://explorer-testnet.soneium.org'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WSONIC', 'Wrapped Sonic', 'https://explorer.soniclabs.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WS', 'Wrapped Sonic', 'https://explorer-testnet.soneium.org'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
