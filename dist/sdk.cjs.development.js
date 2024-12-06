@@ -17,24 +17,24 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
+	"146": {
+	SwapFactory: "0x3638Ca700D67D560Be2A2d0DD471640957564829",
+	Factory_Init_Code_Hash: "0x3bed42f03907b5c612da7c772b49cf2764194400bdae02522522d4137400b19a",
+	SwapRouter: "0xb60259Bd81ec4ff837B9bD798f73E8B7d1643F46",
+	WETH: "0xC55Ce3c2C18caB88a5b49851289A35F1E1c467E9"
+},
 	"57054": {
 	WETH: "0xf66a627199a85c41DcE5Ec7f900177D19d99F7a7",
 	SwapFactory: "0x163c6be160a30a9d1C3A53bAA58f9E844C93d395",
 	Factory_Init_Code_Hash: "0x68fcafb4b49bc63ea3f5a214f24608f03ae29be0f261c307f2da2815e1dcc51c",
 	SwapRouter: "0x1773c1945F2F3Fe6facb726a62350F49958934Ac"
-},
-	"167000": {
-	SwapFactory: "0x2cFAe8F731D6a04f3E868deB03ad73576695271A",
-	Factory_Init_Code_Hash: "0xe73d3498e7715427a4a9565e50f8fc9571c2cf9457c633dd1ad2d5b0324f40eb",
-	SwapRouter: "0xf8279Bad8Cb76B96de38365A05984b7b8f009B17",
-	WETH: "0xa51894664a773981c6c112c43ce576f315d5b1b6"
 }
 };
 
 var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 167000] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 146] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 57054] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
@@ -49,7 +49,7 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var DEFAULT_CHAIN_ID = exports.ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = exports.ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WETH', 'Wrapped ETH', 'https://explorer-testnet.soneium.org'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WS', 'Wrapped Sonic', 'https://explorer-testnet.soneium.org'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'wS', 'Wrapped Sonic', 'https://explorer.soniclabs.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WS', 'Wrapped Sonic', 'https://explorer-testnet.soneium.org'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

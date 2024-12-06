@@ -71,9 +71,9 @@ export const WETH = {
     ChainId.MAINNET,
     addresses[ChainId.MAINNET].WETH,
     18,
-    'WETH',
-    'Wrapped ETH',
-    'https://explorer-testnet.soneium.org'
+    'wS',
+    'Wrapped Sonic',
+    'https://explorer.soniclabs.com/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
