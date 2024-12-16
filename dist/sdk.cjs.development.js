@@ -17,17 +17,17 @@ var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
 
 var addresses = {
-	"1225": {
-	WETH: "0xf430007503f94B2dDeaD28971397b940641Ca07c",
-	SwapFactory: "0xeBb9BD42e3d1ed4fEf502166b17D51ff55dB3525",
-	Factory_Init_Code_Hash: "0x2464591409dfce7ef96e26cbadbfef765915bad8d2784d7c3c3d4e743e9859ef",
-	SwapRouter: "0x5bda354b6fB55A845686f61ed7fCDc302DFBA9e3"
-},
 	"7000": {
 	SwapFactory: "0xab8aEfe85faD683A6bDE16EeD04C3420C713324b",
 	Factory_Init_Code_Hash: "0x461a6049b13f321d3fd008cfd2dae29e1f8c433c5276c4ac81da76f64fe2c9d5",
 	SwapRouter: "0x7E2F79b816F584D1268D470c94989F180253B825",
 	WETH: "0x5300000000000000000000000000000000000004"
+},
+	"14800": {
+	WETH: "0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
+	SwapFactory: "0x6eaD892D9f51CF35d5Df677261b168CCa24B403F",
+	Factory_Init_Code_Hash: "0xc3fa5d659aba77be907249b20a7667812b13ddfb944e1ffa02da9e32f9f0132d",
+	SwapRouter: "0x80825463b4145fA5e77C07DAD83d7c09941cab95"
 }
 };
 
@@ -35,7 +35,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 7000] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 1225] = "TESTNET";
+  ChainId[ChainId["TESTNET"] = 14800] = "TESTNET";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'HYB', 'Hybrid');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'VANA', 'Vana');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WHYB', 'Wrapped Hybrid', 'https://explorer.buildonhybrid.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WHYB', 'Wrapped Hybrid', 'https://explorer.buildonhybrid.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, addresses[exports.ChainId.MAINNET].WETH, 18, 'WHYB', 'Wrapped Hybrid', 'https://explorer.buildonhybrid.com/'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, addresses[exports.ChainId.TESTNET].WETH, 18, 'WVANA', 'Wrapped Vana', 'https://moksha.vanascan.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -774,7 +774,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'HYX-LP', 'HyBridEx LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'VANAS-LP', 'VanaSwap LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
