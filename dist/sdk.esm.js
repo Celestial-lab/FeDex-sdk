@@ -12,11 +12,11 @@ import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
 
 var addresses = {
-	"196": {
+	"146": {
 	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
-	Factory_Init_Code_Hash: "0xb79803c7b3e6448ffb477bfb01feef39c5f9e33a23c5e1c3c444426561221cf5",
+	Factory_Init_Code_Hash: "0x4b460d7a40ef7f2967ff0a1a4288ab058b02980a407f32495270d675c0a08ccd",
 	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
-	WETH: "0xe538905cf8410324e03a5a23c1c177a474d59b2b"
+	WETH: "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
 },
 	"9738": {
 	WETH: "0x2D0C85eD852C417e0c82c7d41E062cea14B93AEa",
@@ -30,7 +30,7 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 196] = "MAINNET";
+  ChainId[ChainId["MAINNET"] = 146] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 9738] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
@@ -49,7 +49,7 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var DEFAULT_CHAIN_ID = ChainId.MAINNET;
 var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].SwapFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].Factory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'BOME', 'BOME chain');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'SONIC', 'Sonic chain');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -451,7 +451,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WOKB', 'Wrapped OKB', 'https://www.okx.com/explorer/xlayer'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://testnet.bomescan.org/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WETH, 18, 'WSONIC', 'Wrapped SONIC', 'https://sonicscan.org/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WETH, 18, 'WBOME', 'Wrapped BOME', 'https://testnet.bomescan.org/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
