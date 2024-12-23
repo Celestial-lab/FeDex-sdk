@@ -18,9 +18,9 @@ var providers = require('@ethersproject/providers');
 
 var addresses = {
 	"146": {
-	SwapFactory: "0xA7afB6163c331DDb0845843889D6f9544328846F",
+	SwapFactory: "0xFa7173B86Fb67921cE3F22a874fb553B2f057349",
 	Factory_Init_Code_Hash: "0x4b460d7a40ef7f2967ff0a1a4288ab058b02980a407f32495270d675c0a08ccd",
-	SwapRouter: "0x174c4C03DfeA09682728A5959A253bf1F7C7766F",
+	SwapRouter: "0xe51107a798aEf58a99a42ca0096759B14b47C942",
 	WETH: "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
 },
 	"9738": {
@@ -384,7 +384,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'SONIC', 'Sonic chain');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'S', 'Sonic chain');
 var ETHER = Currency.ETHER;
 
 var _WETH;
