@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    ' https://mainnet.uniscan.xyz/'
+    'https://explorer-b81c3bd8.hemi.xyz/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -81,6 +81,6 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    ' https://mainnet.uniscan.xyz/'
+    'https://mainnet.uniscan.xyz/'
   )
 }
