@@ -73,7 +73,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH',
-    'https://explorer-testnet.soneium.org'
+    'https://soneium.blockscout.com'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
